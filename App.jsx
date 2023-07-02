@@ -10,37 +10,37 @@ export default function App() {
             <section className="cards">
                 <Card
                     name="Mimikyu"
-                    image="mimikyu.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png"
                     typeOne="ghost"
                     typeTwo="fairy"
                 />
                 <Card
                     name="Tyranitar"
-                    image="tyranitar.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png"
                     typeOne="rock"
                     typeTwo="dark"
                 />
                 <Card
                     name="Volcarona"
-                    image="volcarona.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png"
                     typeOne="fire"
                     typeTwo="bug"
                 />
                 <Card
                     name="Golisopod"
-                    image="golisopod.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png"
                     typeOne="bug"
                     typeTwo="water"
                 />
                 <Card
                     name="Flygon"
-                    image="flygon.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/330.png"
                     typeOne="ground"
                     typeTwo="dragon"
                 />
                 <Card
                     name="Crobat"
-                    image="crobat.png"
+                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png"
                     typeOne="poison"
                     typeTwo="flying"
                 />
