@@ -71,6 +71,11 @@ section.cards {
     height: 120px;
 }
 
+.pokeball {
+    height: 32px;
+    width: 32px;
+}
+
 .bg-pokeball {
     opacity: 25%;
 }
