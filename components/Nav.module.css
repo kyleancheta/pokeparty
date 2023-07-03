@@ -1,4 +1,4 @@
-@import "../colors.css";
+@import "../global.css";
 
 nav {
     z-index: 100;
@@ -17,4 +17,27 @@ nav {
 .pokeball {
     height: 32px;
     width: 32px;
+}
+
+.infoBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 24px;
+
+    padding: 4px 6px;
+
+    color: var(--main-white);
+    background-color: var(--dragon);
+    border-radius: var(--border-radi-sm);
+    border: none;
+    box-shadow: 0 1px 1px 0 var(--main-shadow-25);
+
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.infoBtn:hover {
+    background-color: #3F17B0;
+    box-shadow: 0 0 0 0 var(--main-shadow-05);
 }

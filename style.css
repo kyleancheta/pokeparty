@@ -1,4 +1,9 @@
-@import "./colors.css";
+@import "./global.css";
+
+::selection {
+    background: var(--dragon);
+    color: var(--electric);
+}
 
 * {
     font-family: 'Space Grotesk', sans-serif;
@@ -12,6 +17,10 @@ body {
 .main {
     position: relative;
     min-height: 100vh;
+}
+
+hr {
+    border: 1px solid var(--steel);
 }
 
 section.cards {
@@ -76,7 +85,7 @@ h2.pokemon-name {
 }
 
 .pill-type {
-    padding: 2px 4px;
+    padding: 3px 4px;
     width: 56px;
     max-width: 56px;
 
@@ -90,7 +99,8 @@ h2.pokemon-name {
     border-radius: 2px;
 
     font-size: 12px;
-    text-transform: capitalize;
+    line-height: 100%;
+    text-transform: uppercase;
 }
 
 .ghost {

@@ -2,11 +2,20 @@ import React from "react"
 import Nav from "./components/Nav"
 import Card from "./components/Card"
 import Footer from "./components/Footer"
+import InfoModal from "./components/InfoModal"
 
 export default function App() {
+    const [infoVisible, setInfoVisible] = React.useState(false)
+    
+    function toggleInfo() {
+        return setInfoVisible(prev => !prev)
+    } 
+    
+
     return (
         <section className="main">
-            <Nav/>
+            {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
+            <Nav toggleInfo={toggleInfo}/>
             <section className="cards">
                 <Card
                     name="Mimikyu"
