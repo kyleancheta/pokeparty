@@ -98,6 +98,8 @@ h2.pokemon-name {
     background-color: var(--main-black);
     border-radius: 2px;
 
+    font-family: 'Space Mono', 'Space Grotesk', monospace;
+    font-weight: 700;
     font-size: 12px;
     line-height: 100%;
     text-transform: uppercase;
