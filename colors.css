@@ -1,0 +1,25 @@
+:root {
+    --main-black: #1A1A1A;
+    --main-white: #FEFEFE;
+
+    --main-shadow: rgba(0, 0, 0, 0.05);
+
+    --ghost: #622C7B;
+    --fairy: #DF5799;
+    --rock: #4A3826;
+    --dark: #2A2A2A;
+    --fire: #BF3724;
+    --bug: #128764;
+    --water: #3152C6;
+    --ground: #80542D;
+    --dragon: #4F1DDF;
+    --poison: #9E10E0;
+    --flying: #4A777D;
+    --normal: #FBDBDB;
+    --fighting: #845D2F;
+    --steel: #939294;
+    --psychic: #CB1CB9;
+    --electric: #A98C24;
+    --ice: #4695A7;
+    --grass: #378A40;
+}

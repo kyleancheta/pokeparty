@@ -1,8 +1,4 @@
-:root {
-    --main-black: #1A1A1A;
-    --main-white: #FEFEFE;
-
-}
+@import "./colors.css";
 
 * {
     font-family: 'Space Grotesk', sans-serif;
@@ -16,20 +12,6 @@ body {
 .main {
     position: relative;
     min-height: 100vh;
-}
-
-nav {
-    z-index: 100;
-    width: 100%;
-    height: 64px;
-    background: var(--main-white);
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.10);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;;
-    align-items: center;
-    gap: 8px;
 }
 
 section.cards {
@@ -71,11 +53,6 @@ section.cards {
     height: 120px;
 }
 
-.pokeball {
-    height: 32px;
-    width: 32px;
-}
-
 .bg-pokeball {
     opacity: 25%;
 }
@@ -109,7 +86,7 @@ h2.pokemon-name {
     text-align: center;
     
     color: var(--main-white);
-    background-color: black;
+    background-color: var(--main-black);
     border-radius: 2px;
 
     font-size: 12px;
