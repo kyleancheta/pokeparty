@@ -1,8 +1,8 @@
 @import "./global.css";
 
 ::selection {
-    background: var(--dragon);
-    color: var(--electric);
+    background: var(--fire);
+    color: var(--main-white);
 }
 
 * {
