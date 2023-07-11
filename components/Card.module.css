@@ -1,6 +1,7 @@
 @import "../global.css";
 
 .card {
+    width: 158px;
     max-width: 158px;
     padding: 12px 10px;
     display: flex;
@@ -83,6 +84,7 @@ h2.name {
     }
 
     .card {
+        width: 228px;
         max-width: 228px;
         padding: 16px 14px;
     }
