@@ -61,12 +61,18 @@ h2.name {
     
     color: var(--main-white);
     border-radius: 2px;
+}
 
+.pill > p {
     font-family: 'Space Mono', 'Space Grotesk', monospace;
     font-weight: 700;
     font-size: 12px;
     line-height: 100%;
     text-transform: uppercase;
+}
+
+.normal {
+    color: var(--main-black);
 }
 
 @media screen and (min-width: 768px) {

@@ -8,7 +8,7 @@ export default function App() {
     const [infoVisible, setInfoVisible] = React.useState(false)
     const [pokemonParty, setPokemonParty] = React.useState([])
     const initialPokemon = [778, 248, 637, 768, 330, 169]
-    
+
     function toggleInfo() {
         return setInfoVisible(prev => !prev)
     }
@@ -40,21 +40,17 @@ export default function App() {
             getPokemon(pokeUrl)
         }
     }, [])
-    
-    //console.log(pokemonParty)
 
+    console.log(pokemonParty)
+    
     const pokemonPartyCards = pokemonParty.map(poke => {
-        // console.log(poke)
         return <Card
                     key={poke.id}
                     name={poke.species.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
-                    typeOne={poke.types[0].type.name}
-                    typeTwo={poke.types[1].type.name}
+                    types={poke.types}
                 />
     })
-
-    //console.log(pokemonPartyCards)
 
     return (
         <section className="main">
@@ -62,42 +58,6 @@ export default function App() {
             <Nav toggleInfo={toggleInfo}/>
             <section className="cards">
                 {pokemonPartyCards}
-                {/* <Card
-                    name="Mimikyu"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png"
-                    typeOne="ghost"
-                    typeTwo="fairy"
-                />
-                <Card
-                    name="Tyranitar"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png"
-                    typeOne="rock"
-                    typeTwo="dark"
-                />
-                <Card
-                    name="Volcarona"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png"
-                    typeOne="fire"
-                    typeTwo="bug"
-                />
-                <Card
-                    name="Golisopod"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png"
-                    typeOne="bug"
-                    typeTwo="water"
-                />
-                <Card
-                    name="Flygon"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/330.png"
-                    typeOne="ground"
-                    typeTwo="dragon"
-                />
-                <Card
-                    name="Crobat"
-                    image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png"
-                    typeOne="poison"
-                    typeTwo="flying"
-                /> */}
             </section>
             <Footer/>
         </section>

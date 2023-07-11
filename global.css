@@ -64,3 +64,22 @@
 .flying {
     background-color: var(--flying);
 }
+.psychic {
+    background-color: var(--psychic);
+}
+.normal {
+    color: var(--main-black);
+    background-color: var(--normal);
+}
+.fighting {
+    background-color: var(--fighting);
+}
+.steel {
+    background-color: var(--steel);
+}
+.electric {
+    background-color: var(--electric);
+}
+.grass {
+    background-color: var(--grass);
+}

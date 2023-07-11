@@ -1,16 +1,23 @@
 import React from "react"
 import cardStyles from "./Card.module.css"
 
-export default function Card(props) {
+export default function Card({name, image, types, ...props}) {
+    
+    let typeOne = types[0].type.name
+    let typeTwo = null
+    if (types.length > 1) {
+        typeTwo = types[1].type.name
+    }
+    
     return (
         <div className={cardStyles.card}>
             <div className={cardStyles.container}>
-                <img src={props.image} className={cardStyles.artwork}/>
+                <img src={image} className={cardStyles.artwork}/>
             </div>
-            <h2 className={cardStyles.name}>{props.name}</h2>
+            <h2 className={cardStyles.name}>{name}</h2>
             <section className={cardStyles.types}>
-                <div className={`${cardStyles.pill} ${props.typeOne}`}>{props.typeOne}</div>
-                {props.typeTwo && <div className={`${cardStyles.pill} ${props.typeTwo}`}>{props.typeTwo}</div>}
+                <div className={`${cardStyles.pill} ${typeOne}`}><p>{typeOne}</p></div>
+                {typeTwo && <div className={`${cardStyles.pill} ${typeTwo}`}><p>{typeTwo}</p></div>}
             </section>
         </div>
     )
