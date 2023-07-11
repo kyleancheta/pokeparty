@@ -27,8 +27,8 @@ nav {
 
     padding: 6px;
 
-    color: var(--main-white);
-    background-color: var(--dragon);
+    color: var(--dragon);
+    background-color: var(--main-white);
     border-radius: var(--border-radi-circ);
     border: none;
     box-shadow: 0 1px 1px 0 var(--main-shadow-25);
@@ -38,7 +38,32 @@ nav {
 }
 
 .infoBtn:hover {
-    background-color: #3F17B0;
+    color: var(--main-white);
+    background-color: var(--dragon);
+    box-shadow: 0 0 0 0 var(--main-shadow-05);
+}
+
+.randomizeBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    left: 24px;
+
+    padding: 6px;
+
+    color: var(--dragon);
+    background-color: var(----main-white);
+    border-radius: var(--border-radi-circ);
+    border: none;
+    box-shadow: 0 1px 1px 0 var(--main-shadow-25);
+
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.randomizeBtn:hover {
+    color: var(--main-white);
+    background-color: var(--dragon);
     box-shadow: 0 0 0 0 var(--main-shadow-05);
 }
 

@@ -4,6 +4,8 @@
 
     --main-shadow-05: rgba(26, 26, 26, 0.05);
     --main-shadow-25: rgba(26, 26, 26, 0.25);
+    --main-shadow-50: rgba(26, 26, 26, 0.50);
+    --main-shadow-75: rgba(26, 26, 26, 0.75);
     --main-shadow-90: rgba(26, 26, 26, 0.90);
 
     --ghost: #622C7B;
@@ -17,7 +19,7 @@
     --dragon: #4F1DDF;
     --poison: #9E10E0;
     --flying: #4A777D;
-    --normal: #FBDBDB;
+    --normal: #968f8f;
     --fighting: #845D2F;
     --steel: #939294;
     --psychic: #CB1CB9;
@@ -82,4 +84,7 @@
 }
 .grass {
     background-color: var(--grass);
+}
+.ice {
+    background-color: var(--ice);
 }

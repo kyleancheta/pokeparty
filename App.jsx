@@ -13,6 +13,30 @@ export default function App() {
         return setInfoVisible(prev => !prev)
     }
 
+    function randomParty() {
+        const newParty = []
+        for (let i = 0; i < 6; i++) {
+            newParty.push(Math.ceil(Math.random()*1281))
+        }
+        return newParty
+    }
+
+    async function randomizeParty() {
+        const randy = randomParty()
+        for (let i = 0; i < randy.length; i++) {
+            let url = `https://pokeapi.co/api/v2/pokemon/${randy[i]}/`
+            const res = await fetch(url)
+            const data = await res.json()
+            setTimeout(() => {
+                setPokemonParty(prev => {
+                    const newArray = [...prev]
+                    newArray[i] = data
+                    return newArray
+                })
+            }, 500)
+        }
+    }
+
     React.useEffect(() => {
         async function getPokemon(url) {
             const res = await fetch(url)
@@ -55,7 +79,7 @@ export default function App() {
     return (
         <section className="main">
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
-            <Nav toggleInfo={toggleInfo}/>
+            <Nav toggleInfo={toggleInfo} randomParty={randomParty} randomizeParty={randomizeParty}/>
             <section className="cards">
                 {pokemonPartyCards}
             </section>

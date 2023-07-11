@@ -2,7 +2,7 @@ import React from "react"
 import cardStyles from "./Card.module.css"
 
 export default function Card({name, image, types, ...props}) {
-    
+
     let typeOne = types[0].type.name
     let typeTwo = null
     if (types.length > 1) {

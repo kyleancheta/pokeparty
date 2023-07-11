@@ -71,10 +71,6 @@ h2.name {
     text-transform: uppercase;
 }
 
-.normal {
-    color: var(--main-black);
-}
-
 @media screen and (min-width: 768px) {
     section.cards {
         max-width: 100%;
