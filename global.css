@@ -28,6 +28,7 @@
     --border-radi-sm: 2px;
     --border-radi-md: 4px;
     --border-radi-lg: 8px;
+    --border-radi-circ: 100px;
 }
 
 .ghost {
