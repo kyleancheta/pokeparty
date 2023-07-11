@@ -22,12 +22,12 @@ p {
     padding: 12px 16px;
     border-radius: var(--border-radi-md);
     color: var(--main-white);
-    background-color: var(--poison);
+    background-color: var(--dragon);
     border: none;
 }
 
 .btn:hover {
-    background-color: var(--ghost);
+    background-color: #3F17B0;
 }
 
 .bg {

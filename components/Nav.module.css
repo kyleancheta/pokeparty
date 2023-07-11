@@ -22,14 +22,14 @@ nav {
 .infoBtn {
     cursor: pointer;
     position: absolute;
-    top: 22px;
+    top: 16px;
     right: 24px;
 
-    padding: 4px 6px;
+    padding: 6px;
 
     color: var(--main-white);
     background-color: var(--dragon);
-    border-radius: var(--border-radi-sm);
+    border-radius: var(--border-radi-circ);
     border: none;
     box-shadow: 0 1px 1px 0 var(--main-shadow-25);
 
@@ -40,4 +40,9 @@ nav {
 .infoBtn:hover {
     background-color: #3F17B0;
     box-shadow: 0 0 0 0 var(--main-shadow-05);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
 }
