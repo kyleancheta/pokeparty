@@ -29,3 +29,37 @@
     --border-radi-md: 4px;
     --border-radi-lg: 8px;
 }
+
+.ghost {
+    background-color: var(--ghost);
+}
+.fairy {
+    background-color: var(--fairy);
+}
+.rock {
+    background-color: var(--rock);
+}
+.dark {
+    background-color: var(--dark);
+}
+.fire {
+    background-color: var(--fire);
+}
+.bug {
+    background-color: var(--bug);
+}
+.water {
+    background-color: var(--water);
+}
+.ground {
+    background-color: var(--ground);
+}
+.dragon {
+    background-color: var(--dragon);
+}
+.poison {
+    background-color: var(--poison);
+}
+.flying {
+    background-color: var(--flying);
+}
