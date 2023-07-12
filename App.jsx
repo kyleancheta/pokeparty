@@ -16,7 +16,7 @@ export default function App() {
     function randomParty() {
         const newParty = []
         for (let i = 0; i < 6; i++) {
-            newParty.push(Math.ceil(Math.random()*1281))
+            newParty.push(Math.ceil(Math.random()*1010))
         }
         return newParty
     }
@@ -24,16 +24,13 @@ export default function App() {
     async function randomizeParty() {
         const randy = randomParty()
         for (let i = 0; i < randy.length; i++) {
-            let url = `https://pokeapi.co/api/v2/pokemon/${randy[i]}/`
-            const res = await fetch(url)
-            const data = await res.json()
-            setTimeout(() => {
-                setPokemonParty(prev => {
-                    const newArray = [...prev]
-                    newArray[i] = data
-                    return newArray
-                })
-            }, 500)
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randy[i]}/`)
+            const data = await res.json()         
+            setPokemonParty(prev => {
+                const newArray = [...prev]
+                newArray[i] = data
+                return newArray
+            })        
         }
     }
 
@@ -47,29 +44,16 @@ export default function App() {
                 return newArr
             })
         }
-        // let pokeUrlOne = `https://pokeapi.co/api/v2/pokemon/778/`
-        // getPokemon(pokeUrlOne)
-        // let pokeUrlTwo = `https://pokeapi.co/api/v2/pokemon/248/`
-        // getPokemon(pokeUrlTwo)
-        // let pokeUrlThree = `https://pokeapi.co/api/v2/pokemon/637/`
-        // getPokemon(pokeUrlThree)
-        // let pokeUrlFour = `https://pokeapi.co/api/v2/pokemon/768/`
-        // getPokemon(pokeUrlFour)
-        // let pokeUrlFive = `https://pokeapi.co/api/v2/pokemon/330/`
-        // getPokemon(pokeUrlFive)
-        // let pokeUrlSix = `https://pokeapi.co/api/v2/pokemon/169/`
-        // getPokemon(pokeUrlSix)
         for (let i = 0; i < 6; i++) {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${initialPokemon[i]}/`
             getPokemon(pokeUrl)
         }
     }, [])
-
-    console.log(pokemonParty)
     
-    const pokemonPartyCards = pokemonParty.map(poke => {
+    const pokemonPartyCards = pokemonParty.map((poke, index) => {
         return <Card
-                    key={poke.id}
+                    //index={index}
+                    key={index}
                     name={poke.species.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
                     types={poke.types}
