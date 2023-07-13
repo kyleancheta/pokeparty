@@ -1,6 +1,7 @@
 @import "../global.css";
 
 .card {
+    height: 196px;
     width: 158px;
     max-width: 158px;
     padding: 12px 10px;
@@ -11,6 +12,12 @@
     background-color: var(--main-white);
     border-radius: 12px;
     box-shadow: 0px 12px 25px 0px rgba(0, 0, 0, 0.05), 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    margin-top: -6px;
+    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.10), 0px 2px 6px 0px rgba(0, 0, 0, 0.40);
 }
 
 .container {
@@ -21,6 +28,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover .container {
+    width: 128px;
+    height: 128px;
 }
 
 .artwork, .bg-pokeball {
@@ -84,6 +97,7 @@ h2.name {
     }
 
     .card {
+        height: 220px;
         width: 186px;
         max-width: 228px;
         padding: 16px 14px;
@@ -92,6 +106,11 @@ h2.name {
     .container, .artwork {
         width: 160px;
         height: 160px;
+    }
+
+    .card:hover .container {
+        width: 176px;
+        height: 176px;
     }
  
     h2.name {
