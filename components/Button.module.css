@@ -1,0 +1,29 @@
+button {
+    cursor: pointer;
+
+    padding: 6px;
+    color: var(--dragon);
+    background-color: var(--main-white);
+    border-radius: var(--border-radi-circ);
+    border: none;
+    box-shadow: 0 1px 3px 0 var(--main-shadow-25);
+
+    font-size: 16px;
+    line-height: 100%;
+    transition: all 300ms;
+}
+
+button:hover {
+    /* color: var(--main-white);
+    background-color: var(--dragon); */
+    box-shadow: 0 2px 1px 0 var(--main-shadow-50);
+    top: 14px;
+}
+
+button:active {
+    color: var(--main-white);
+    background-color: var(--dragon);
+    box-shadow: 0 0 1px 0 var(--main-shadow-25);
+    top: 16px;
+}
+

@@ -1,7 +1,7 @@
 @import "../global.css";
 
 .card {
-    height: 196px;
+    max-height: 196px;
     width: 158px;
     max-width: 158px;
     padding: 12px 10px;
@@ -97,7 +97,7 @@ h2.name {
     }
 
     .card {
-        height: 220px;
+        max-height: 220px;
         width: 186px;
         max-width: 228px;
         padding: 16px 14px;
