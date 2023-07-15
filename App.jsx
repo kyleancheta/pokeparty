@@ -3,14 +3,21 @@ import Nav from "./components/Nav"
 import Card from "./components/Card"
 import Footer from "./components/Footer"
 import InfoModal from "./components/InfoModal"
+import PokemonInfo from "./components/PokemonInfo"
 
 export default function App() {
     const [infoVisible, setInfoVisible] = React.useState(false)
     const [pokemonParty, setPokemonParty] = React.useState([])
+    const [displayParty, setDisplayParty] = React.useState(false)
+    const [activeIndex, setActiveIndex] = React.useState(null)
     const initialPokemon = [778, 248, 637, 768, 330, 169]
 
     function toggleInfo() {
         return setInfoVisible(prev => !prev)
+    }
+
+    function closePokeInfo() {
+        return setDisplayParty(false)
     }
 
     function randomParty() {
@@ -57,15 +64,20 @@ export default function App() {
                     name={poke.species.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
                     types={poke.types}
+                    onClick={() => {
+                        setActiveIndex(index)
+                        setDisplayParty(true)
+                    }}
                 />
     })
 
     return (
         <section className="main">
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
+            {displayParty && <PokemonInfo pokemon={pokemonParty} activeIndex={activeIndex} close={closePokeInfo}/>}
             <Nav toggleInfo={toggleInfo} randomParty={randomParty} randomizeParty={randomizeParty}/>
             <section className="cards">
-                {pokemonPartyCards}
+                {!displayParty && pokemonPartyCards || window.innerWidth > 576 && pokemonPartyCards }
             </section>
             <Footer/>
         </section>

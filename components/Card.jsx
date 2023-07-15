@@ -10,7 +10,7 @@ export default function Card({name, image, types, ...props}) {
     }
     
     return (
-        <div className={cardStyles.card}>
+        <div className={cardStyles.card} {...props}>
             <div className={cardStyles.container}>
                 <img src={image} className={cardStyles.artwork}/>
             </div>

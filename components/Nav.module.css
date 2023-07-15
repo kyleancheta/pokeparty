@@ -1,7 +1,11 @@
 @import "../global.css";
 
 nav {
-    z-index: 100;
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* width: 100%; */
     max-width: 100%;
     height: 64px;
     background: var(--main-white);
@@ -26,66 +30,6 @@ nav {
     height: 32px;
     width: 32px;
 }
-
-.positionLeft {
-    position: absolute;
-    top: 16px;
-    left: 24px;
-}
-
-.positionRight {
-    position: absolute;
-    top: 16px;
-    right: 24px;
-}
-
-/* .infoBtn {
-    cursor: pointer;
-    position: absolute;
-    top: 16px;
-    right: 24px;
-
-    padding: 6px;
-
-    color: var(--dragon);
-    background-color: var(--main-white);
-    border-radius: var(--border-radi-circ);
-    border: none;
-    box-shadow: 0 1px 1px 0 var(--main-shadow-25);
-
-    font-size: 16px;
-    line-height: 100%;
-}
-
-.infoBtn:hover {
-    color: var(--main-white);
-    background-color: var(--dragon);
-    box-shadow: 0 0 0 0 var(--main-shadow-05);
-} */
-
-/* .randomizeBtn {
-    cursor: pointer;
-    position: absolute;
-    top: 16px;
-    left: 24px;
-
-    padding: 6px;
-
-    color: var(--dragon);
-    background-color: var(----main-white);
-    border-radius: var(--border-radi-circ);
-    border: none;
-    box-shadow: 0 1px 1px 0 var(--main-shadow-25);
-
-    font-size: 16px;
-    line-height: 100%;
-}
-
-.randomizeBtn:hover {
-    color: var(--main-white);
-    background-color: var(--dragon);
-    box-shadow: 0 0 0 0 var(--main-shadow-05);
-} */
 
 .icon {
     width: 20px;

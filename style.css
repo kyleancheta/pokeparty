@@ -15,8 +15,10 @@ body {
 }
 
 .main {
-    position: relative;
+    width: 100%;
+    /* position: relative; */
     min-height: 100vh;
+    overflow: hidden;
 }
 
 hr {
@@ -25,7 +27,7 @@ hr {
 
 section.cards {
     max-width: 100%;
-    margin: 24px 0;
+    margin: calc(64px + 40px) 0 24px;
     padding: 0 20px;
     display: flex;
     flex-direction: row;
@@ -49,7 +51,7 @@ footer {
 @media screen and (min-width: 768px) {
     section.cards {
         max-width: 100%;
-        margin: 64px 0;
+        /* margin: 64px 0; */
         padding: 0 40px;
         display: grid;
         grid-template-columns: auto auto auto;

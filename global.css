@@ -2,6 +2,14 @@
     --main-black: #1A1A1A;
     --main-white: #FEFEFE;
 
+    --black-100: #2A2A2A;
+    --black-200: #3A3A3A;
+    --black-300: #4A4A4A;
+
+    --grey-100: #888;
+    --grey-200: #AAA;
+    --grey-300: #CCC;
+
     --main-shadow-05: rgba(26, 26, 26, 0.05);
     --main-shadow-25: rgba(26, 26, 26, 0.25);
     --main-shadow-50: rgba(26, 26, 26, 0.50);
@@ -30,6 +38,7 @@
     --border-radi-sm: 2px;
     --border-radi-md: 4px;
     --border-radi-lg: 8px;
+    --border-radi-xl: 16px;
     --border-radi-circ: 100px;
 }
 

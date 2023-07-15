@@ -1,6 +1,7 @@
 @import "../global.css";
 
 .card {
+    cursor: pointer;
     max-height: 196px;
     width: 158px;
     max-width: 158px;
