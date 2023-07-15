@@ -23,3 +23,17 @@
     line-height: 100%;
 }
 
+@media screen and (min-width: 576px) {
+    .main {
+        width: 144px;
+        gap: 6px;
+    }
+    
+    .main > span {
+        font-size: 1rem;
+    }
+    
+    .main > p {
+        font-size: 2rem;
+    }
+}

@@ -27,7 +27,7 @@ function PokemonInfo({pokemon, activeIndex, close, ...props}) {
 
     console.log(activePokemon)
     return (
-        <div className={pokeStyles.bg}>
+        <div className={pokeStyles.bg} onClick={close}>
             <section className={pokeStyles.main}>
                 <section className={pokeStyles.actions}>
                     <p>{activeIndex+1} / 6</p>

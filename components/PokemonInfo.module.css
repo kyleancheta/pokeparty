@@ -30,6 +30,7 @@ hr {
 
 .main {
     overflow-y: scroll;
+    overflow-x: hidden;
     position: fixed;
     width: calc(100vw - 64px);
     height: 100vh;
@@ -38,7 +39,7 @@ hr {
     flex-direction: column;
     gap: 16px;
     padding: 32px;
-    margin-bottom: 64px;
+    /* margin-bottom: 64px; */
 
     background-color: var(--main-white);
 }
@@ -135,7 +136,7 @@ hr {
 .stats {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 24px 48px;
+    gap: 24px 40px;
     justify-content: center;
     align-items: center;
 }
@@ -154,10 +155,39 @@ hr {
     }
     .main {
         position: fixed;
+        height: auto;
         width: 360px;
         top: 0;
+        bottom: 0;
         right: 0;
         margin-bottom: 0;
         border-radius: var(--border-radi-xl) 0 0 var(--border-radi-xl);
+        gap: 20px;
     }
+    
+    .info {
+        gap: 32px;
+    }
+
+    .stats {
+        gap: 24px 32px;
+    }
+
+    .name > h1 {
+        font-size: 2.25rem;
+    }
+
+    .name > h4 {
+        font-size: 1.5rem;
+    }
+
+    .pill {
+        padding: 6px 8px;
+        width: 72px;
+    }
+
+    .pill > p {
+        font-size: 14px;
+    }
+
 }
