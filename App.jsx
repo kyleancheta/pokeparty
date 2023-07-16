@@ -21,11 +21,21 @@ export default function App() {
     }
 
     function nextPokemon() {
-        return setActiveIndex(prev => prev > 5 ? 0 : prev + 1)
+        if (activeIndex + 1 > 5) {
+            return setActiveIndex(0)
+        } else {
+            return setActiveIndex(prev => prev+1)
+        }
+        //return setActiveIndex(prev => prev + 1)
     }
 
     function prevPokemon() {
-        return setActiveIndex(prev => prev < 0 ? 5 : prev - 1)
+        if (activeIndex - 1 < 0) {
+            return setActiveIndex(5)
+        } else {
+            return setActiveIndex(prev => prev-1)
+        }
+        //return setActiveIndex(prev => prev - 1)
     }
 
     function randomParty() {
@@ -85,8 +95,8 @@ export default function App() {
             {displayParty && <PokemonInfo   pokemon={pokemonParty} 
                                             activeIndex={activeIndex} 
                                             close={closePokeInfo} 
-                                            prev={prevPokemon} 
-                                            next={nextPokemon}/>
+                                            prevPoke={prevPokemon} 
+                                            nextPoke={nextPokemon}/>
             }
             <Nav toggleInfo={toggleInfo} randomParty={randomParty} randomizeParty={randomizeParty}/>
             <section className="cards">

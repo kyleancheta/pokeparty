@@ -4,7 +4,7 @@ import Button from "./Button"
 import Stat from "./Stat"
 import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
 
-function PokemonInfo({pokemon, activeIndex, close, prev, next, ...props}) {
+function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}) {
     const activePokemon = pokemon[activeIndex]
     const pokeHeight = activePokemon.height / 10
     const pokeWeight = activePokemon.weight / 10
@@ -27,19 +27,21 @@ function PokemonInfo({pokemon, activeIndex, close, prev, next, ...props}) {
 
     console.log(activePokemon)
     return (
-        <div className={pokeStyles.bg} onClick={close}>
+        <div className={pokeStyles.bg}>
             <section className={pokeStyles.main}>
                 <section className={pokeStyles.actions}>
-                    <Button onClick={prev}>
-                        <MdArrowBack className={pokeStyles.icon}/>
-                    </Button>
-                    <p>{activeIndex+1} / 6</p>
-                    <Button onClick={next}>
-                        <MdArrowForward className={pokeStyles.icon}/>
-                    </Button>
-                    <Button onClick={close}>
-                        <MdClose className={pokeStyles.icon}/>
-                    </Button>
+                    <section class={pokeStyles.navActions}>    
+                        <Button onClick={prevPoke}>
+                            <MdArrowBack className={pokeStyles.icon}/>
+                        </Button>
+                        <p>{activeIndex+1} / 6</p>
+                        <Button onClick={nextPoke}>
+                            <MdArrowForward className={pokeStyles.icon}/>
+                        </Button>
+                    </section>
+                        <Button onClick={close}>
+                            <MdClose className={pokeStyles.icon}/>
+                        </Button>
                 </section>
                 <section className={pokeStyles.image}>
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${activePokemon.id}.png`} alt={activePokemon.name} />
