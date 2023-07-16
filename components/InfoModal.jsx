@@ -11,7 +11,7 @@ function InfoModal(props) {
                     Refer to this info box to check what I'm workin' on next!
                 </p>
                 <hr className={modalStyles.divider}/>
-                <p><strong>Next:</strong> Displaying more Pokemon data!</p>
+                <p><strong>Next:</strong> Choose your own Pokemon!</p>
                 <button className={modalStyles.btn} onClick={props.toggleInfo}>Close</button>
             </div>
         </div>
