@@ -2,9 +2,9 @@ import React from "react"
 import pokeStyles from "./PokemonInfo.module.css"
 import Button from "./Button"
 import Stat from "./Stat"
-import { MdClose } from "react-icons/md";
+import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
 
-function PokemonInfo({pokemon, activeIndex, close, ...props}) {
+function PokemonInfo({pokemon, activeIndex, close, prev, next, ...props}) {
     const activePokemon = pokemon[activeIndex]
     const pokeHeight = activePokemon.height / 10
     const pokeWeight = activePokemon.weight / 10
@@ -30,7 +30,13 @@ function PokemonInfo({pokemon, activeIndex, close, ...props}) {
         <div className={pokeStyles.bg} onClick={close}>
             <section className={pokeStyles.main}>
                 <section className={pokeStyles.actions}>
+                    <Button onClick={prev}>
+                        <MdArrowBack className={pokeStyles.icon}/>
+                    </Button>
                     <p>{activeIndex+1} / 6</p>
+                    <Button onClick={next}>
+                        <MdArrowForward className={pokeStyles.icon}/>
+                    </Button>
                     <Button onClick={close}>
                         <MdClose className={pokeStyles.icon}/>
                     </Button>

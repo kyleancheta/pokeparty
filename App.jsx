@@ -20,6 +20,14 @@ export default function App() {
         return setDisplayParty(false)
     }
 
+    function nextPokemon() {
+        return setActiveIndex(prev => prev > 5 ? 0 : prev + 1)
+    }
+
+    function prevPokemon() {
+        return setActiveIndex(prev => prev < 0 ? 5 : prev - 1)
+    }
+
     function randomParty() {
         const newParty = []
         for (let i = 0; i < 6; i++) {
@@ -74,7 +82,12 @@ export default function App() {
     return (
         <section className="main">
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
-            {displayParty && <PokemonInfo pokemon={pokemonParty} activeIndex={activeIndex} close={closePokeInfo}/>}
+            {displayParty && <PokemonInfo   pokemon={pokemonParty} 
+                                            activeIndex={activeIndex} 
+                                            close={closePokeInfo} 
+                                            prev={prevPokemon} 
+                                            next={nextPokemon}/>
+            }
             <Nav toggleInfo={toggleInfo} randomParty={randomParty} randomizeParty={randomizeParty}/>
             <section className="cards">
                 {!displayParty && pokemonPartyCards || window.innerWidth > 576 && pokemonPartyCards }
