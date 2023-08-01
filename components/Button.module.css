@@ -21,7 +21,7 @@ button:hover {
 
 button:focus {
     outline: none;
-    border: 2px dashed var(--dragon);
+    border: 1px dashed var(--dragon);
     background-color: color-mix(in srgb, var(--dragon) 40%, white);
 }
 
