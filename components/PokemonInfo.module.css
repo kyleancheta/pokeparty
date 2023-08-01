@@ -32,6 +32,9 @@ hr {
     z-index: 200;
     overflow-y: scroll;
     overflow-x: hidden;
+    /*  Hiding the scrollbar but allowing it to scroll on Firefox and Edge*/
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
     position: fixed;
     width: calc(100vw - 64px);
     height: 100vh;
@@ -39,16 +42,24 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
+    padding: 40px 32px 24px;
     /* margin-bottom: 64px; */
-
     background-color: var(--main-white);
+}
+
+/*  Hiding the scrollbar but allowing it to scroll on Chrome, Safari and Opera*/
+.main::-webkit-scrollbar {
+    display: none;
 }
 
 .actions {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
+
+    width: inherit;
+    position: fixed;
+    /* background-color: var(--main-white); */
 }
 
 .navActions > p {
@@ -71,6 +82,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 32px;
 }
 
 .image > img {

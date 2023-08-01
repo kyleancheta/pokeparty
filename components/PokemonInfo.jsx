@@ -30,12 +30,12 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
         <div className={pokeStyles.bg}>
             <section className={pokeStyles.main}>
                 <section className={pokeStyles.actions}>
-                    <section class={pokeStyles.navActions}>    
-                        <Button onClick={prevPoke}>
+                    <section className={pokeStyles.navActions}>    
+                        <Button onClick={prevPoke} tooltip="Previous Pokemon" tooltipPosition="bottom">
                             <MdArrowBack className={pokeStyles.icon}/>
                         </Button>
                         <p>{activeIndex+1} / 6</p>
-                        <Button onClick={nextPoke}>
+                        <Button onClick={nextPoke} tooltip="Next Pokemon" tooltipPosition="bottom">
                             <MdArrowForward className={pokeStyles.icon}/>
                         </Button>
                     </section>
