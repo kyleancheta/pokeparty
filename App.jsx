@@ -4,9 +4,11 @@ import Card from "./components/Card"
 import Footer from "./components/Footer"
 import InfoModal from "./components/InfoModal"
 import PokemonInfo from "./components/PokemonInfo"
+import CustomizeModal from "./components/CustomizeModal"
 
 export default function App() {
     const [infoVisible, setInfoVisible] = React.useState(false)
+    const [customizeVisible, setCustomizeVisible] = React.useState(false)
     const [pokemonParty, setPokemonParty] = React.useState([])
     const [displayParty, setDisplayParty] = React.useState(false)
     const [activeIndex, setActiveIndex] = React.useState(null)
@@ -14,6 +16,10 @@ export default function App() {
 
     function toggleInfo() {
         return setInfoVisible(prev => !prev)
+    }
+
+    function toggleCustom() {
+        return setCustomizeVisible(prev => !prev)
     }
 
     function closePokeInfo() {
@@ -59,6 +65,18 @@ export default function App() {
         }
     }
 
+    async function customizeParty(newParty) {
+        for (let i = 0; i < newParty.length; i++) {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${newParty[i]}/`)
+            const data = await res.json()         
+            setPokemonParty(prev => {
+                const newArray = [...prev]
+                newArray[i] = data
+                return newArray
+            })        
+        }
+    }
+
     React.useEffect(() => {
         async function getPokemon(url) {
             const res = await fetch(url)
@@ -92,13 +110,14 @@ export default function App() {
     return (
         <section className="main">
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
+            {customizeVisible && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
             {displayParty && <PokemonInfo   pokemon={pokemonParty} 
                                             activeIndex={activeIndex} 
                                             close={closePokeInfo} 
                                             prevPoke={prevPokemon} 
                                             nextPoke={nextPokemon}/>
             }
-            <Nav toggleInfo={toggleInfo} randomParty={randomParty} randomizeParty={randomizeParty}/>
+            <Nav toggleInfo={toggleInfo} toggleCustom={toggleCustom} randomParty={randomParty} randomizeParty={randomizeParty}/>
             <section className="cards">
                 {!displayParty && pokemonPartyCards || window.innerWidth > 576 && pokemonPartyCards }
             </section>

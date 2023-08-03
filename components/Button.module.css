@@ -21,7 +21,7 @@ button:hover {
 
 button:focus {
     outline: none;
-    border: 1px dashed var(--dragon);
+    /* border: 1px dashed var(--dragon); */
     background-color: color-mix(in srgb, var(--dragon) 40%, white);
 }
 
@@ -31,6 +31,22 @@ button:active {
     /* box-shadow: 0 0 1px 0 var(--main-shadow-25); */
     /* top: 16px; */
 }
+
+/* .primary {
+    margin-top: 1rem;
+    width: 50%;
+    max-width: 200px;
+    font-size: 1.2rem;
+    padding: 12px 16px;
+    border-radius: var(--border-radi-md);
+    color: var(--main-white);
+    background-color: var(--dragon);
+    border: none;
+}
+
+.primary:hover {
+    background-color: #3F17B0;
+} */
 
 [hover-tooltip] {
     position: relative;
@@ -49,13 +65,15 @@ button:active {
     max-width: 200px;
     bottom: calc(100% + 10px);
     transform: translate(-50%);
-    animation: fade-in 500ms ease-in-out;
-    animation-delay: 2s;
+    /* animation: fade-in 500ms ease-in-out; */
+    animation-name: fade-in;
+    animation-duration: 500ms;
     background: var(--main-black);
     border-radius: var(--border-radi-sm);
     padding: 8px 10px;
     color: var(--main-white);
     z-index: 1;
+    animation-delay: 2s;
 }
 
 [hover-tooltip]:hover::after {
@@ -70,9 +88,11 @@ button:active {
     border: 1px solid var(--main-black);
     border-color: var(--main-black) transparent transparent transparent;
     border-width: 4px 6px 0;
-    animation: fade-in 500ms ease-in-out;
-    animation-delay: 2s;
+    /* animation: fade-in 500ms ease-in-out; */
+    animation-name: fade-in;
+    animation-duration: 500ms;
     z-index: 1;
+    animation-delay: 2s;
   }
 
 [hover-tooltip][tooltip-position=bottom]:hover::before {

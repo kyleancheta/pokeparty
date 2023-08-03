@@ -1,0 +1,196 @@
+@import "../global.css";
+
+h1, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 150%;
+}
+
+.btn {
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 50%;
+    max-width: 200px;
+    height: 36px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: var(--border-radi-md);
+    color: var(--main-white);
+    background: linear-gradient(135deg, var(--dragon), var(--bug));
+    box-shadow: 0 0 2px 1px var(--main-shadow-05);
+    border: none;
+    transition: all 300ms ease-out;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+    transition: all 300ms ease-out;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, var(--dragon), var(--bug));
+    box-shadow: 0 2px 4px 2px var(--main-shadow-25);
+}
+
+.btn:focus {
+    outline: 2px solid var(--fire);
+}
+
+.btn:hover .icon {
+    width: 24px;
+    height: 24px;
+    transform: rotate(360deg);
+}
+
+.bg {
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-shadow-90);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*  Hiding the scrollbar but allowing it to scroll on Firefox and Edge*/
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+    padding: 24px;
+}
+
+.heading {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading > h1 {
+    font-size: 1.5rem;
+}
+
+.divider {
+    width: 100%;
+}
+
+.formActions {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.form {
+    /* margin-top: 16px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.inputRow {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.inputRow > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    font-size: 1rem;
+    line-height: 100%;
+    font-weight: 700;
+    padding: 0.5rem;
+    color: var(--dragon);
+    border-right: 2px solid var(--dragon);
+    border-radius: var(--border-radi-sm);
+}
+
+.inputRow > input {
+    width: 100%;
+    max-width: 456px;
+    padding: 6px 8px;
+    /* height: 24px; */
+    font-size: 1rem;
+    text-indent: 0;
+    border: 1px solid var(--grey-300);
+    border-radius: var(--border-radi-md);
+    transition: all 200ms ease-out;
+}
+
+.inputRow > input:hover {
+    text-indent: 3px;
+    border: 1px solid var(--dragon);
+    box-shadow: 0 0 2px var(--dragon);
+
+    /* box-shadow: 0 0 4px color-mix(in srgb, var(--dragon) 50%, white); */
+}
+
+.inputRow > input:focus {
+    text-indent: 0;
+    outline: 2px solid var(--dragon);
+}
+
+.inputRow > .sprite {
+    width: 40px;
+    height: 40px;
+    /* padding-left: 0.75rem;  */
+    /* border-left: 2px solid var(--grey-400);
+    border-radius: var(--border-radi-md); */
+}
+
+@media screen and (min-width: 768px) {
+    .bg {
+        align-items: start;
+    }
+    .main {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 50%;
+        max-width: 568px;
+        height: auto;
+        gap: 24px;
+        margin-top: 120px;
+        padding: 32px 48px;
+    
+        border-radius: var(--border-radi-lg);
+    }
+
+    .heading > h1 {
+        font-size: 1.8rem;
+    }
+}
