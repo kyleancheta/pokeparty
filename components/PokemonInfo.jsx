@@ -25,7 +25,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
     }
     const bst = activePokemon.stats[0].base_stat + activePokemon.stats[1].base_stat + activePokemon.stats[2].base_stat + activePokemon.stats[3].base_stat + activePokemon.stats[4].base_stat + activePokemon.stats[5].base_stat
 
-    console.log(activePokemon)
+    // console.log(activePokemon)
     return (
         <div className={pokeStyles.bg}>
             <section className={pokeStyles.main}>
