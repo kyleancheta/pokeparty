@@ -24,8 +24,8 @@ h1, h2, h3, h4, p {
 hr {
     margin: 0;
     width: 100%;
-    border: 0.5px solid var(--grey-300);
-    color: var(--grey-300);
+    border: 0.5px solid var(--grey-400);
+    color: var(--grey-400);
 }
 
 .main {
@@ -45,10 +45,34 @@ hr {
     padding: 40px 32px 24px;
     /* margin-bottom: 64px; */
     background-color: var(--main-white);
+    box-shadow: -2px 0 4px var(--main-shadow-50);
 }
 
 /*  Hiding the scrollbar but allowing it to scroll on Chrome, Safari and Opera*/
 .main::-webkit-scrollbar {
+    display: none;
+}
+
+.mainCenter {
+    z-index: 200;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*  Hiding the scrollbar but allowing it to scroll on Firefox and Edge*/
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    position: fixed;
+    width: calc(100vw - 64px);
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px 32px 24px;
+    /* margin-bottom: 64px; */
+    background-color: var(--main-white);
+}
+
+.desktopDisplayOnly {
     display: none;
 }
 
@@ -59,7 +83,6 @@ hr {
 
     width: inherit;
     position: fixed;
-    /* background-color: var(--main-white); */
 }
 
 .navActions > p {
@@ -71,6 +94,19 @@ hr {
     justify-content: center;
     align-items: center;
     gap: 16px;
+}
+
+.section {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.section > * {
+    width: 100%;
 }
 
 .image {
@@ -210,4 +246,55 @@ hr {
         font-size: 14px;
     }
 
+}
+@media screen and (min-width: 1024px) {
+    .desktopDisplayOnly {
+        display: block;
+    }
+
+    .mainCenter {
+        overflow-y: hidden;
+        overflow-x: hidden;
+
+        width: 768px;
+        /* height: 464px; */
+        max-height: 496px;
+        top: 80px;
+        display: grid;
+        grid-template: 32px auto / 1fr 1fr;
+        gap: 16px;
+        padding: 32px;
+        border-radius: var(--border-radi-xl);
+        box-shadow: 0 2px 4px var(--main-shadow-50);
+    }
+
+    .actions {
+        grid-column: 1 / span 2;
+        grid-row: 1 / 2;
+    }
+
+    .contentA {
+        grid-column: 1 / span 1;
+        grid-row: 2 / 3;
+        align-content: center;
+        justify-content: center;
+        /* place-content: center / center; */
+    }
+
+    .contentB {
+        grid-column: 2 / span 1;
+        grid-row: 2 / 3;
+        align-content: center;
+        justify-content: center;
+        /* place-content: center / center; */
+    }
+
+    .image {
+        margin-top: 40px;
+    }
+
+    .mainCenter > .image {
+        margin-top: 0;
+    }
+    
 }
