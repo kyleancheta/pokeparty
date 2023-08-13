@@ -7,12 +7,17 @@ import PokemonInfo from "./components/PokemonInfo"
 import CustomizeModal from "./components/CustomizeModal"
 
 export default function App() {
+    const initialPokemon = [778, 248, 637, 768, 330, 169]
+
+    const [currentPokemonList, setCurrentPokemonList] = React.useState(
+        () => JSON.parse(localStorage.getItem("pokemonpartylist")) || initialPokemon
+    )
+    const [pokemonParty, setPokemonParty] = React.useState([])
     const [infoVisible, setInfoVisible] = React.useState(false)
     const [customizeVisible, setCustomizeVisible] = React.useState(false)
-    const [pokemonParty, setPokemonParty] = React.useState([])
     const [displayParty, setDisplayParty] = React.useState(false)
+    
     const [activeIndex, setActiveIndex] = React.useState(null)
-    const initialPokemon = [778, 248, 637, 768, 330, 169]
 
     function toggleInfo() {
         return setInfoVisible(prev => !prev)
@@ -32,7 +37,6 @@ export default function App() {
         } else {
             return setActiveIndex(prev => prev+1)
         }
-        //return setActiveIndex(prev => prev + 1)
     }
 
     function prevPokemon() {
@@ -41,7 +45,6 @@ export default function App() {
         } else {
             return setActiveIndex(prev => prev-1)
         }
-        //return setActiveIndex(prev => prev - 1)
     }
 
     function randomParty() {
@@ -82,20 +85,53 @@ export default function App() {
             const res = await fetch(url)
             const data = await res.json()
             setPokemonParty(function(prev) {
+                console.log(prev)
                 const newArr = [...prev]
-                newArr.push(data)
-                return newArr
+                if (newArr.length < 6) {
+                    newArr.push(data)
+                    return newArr
+                } else {
+                    return prev
+                }
             })
         }
         for (let i = 0; i < 6; i++) {
-            let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${initialPokemon[i]}/`
+            let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
             getPokemon(pokeUrl)
         }
     }, [])
+
+    React.useEffect(() => {
+        if (pokemonParty.length == 6) {
+            setCurrentPokemonList(prev => {
+                const updatedList = [...prev]
+                for (let i = 0; i < 6; i++) {
+                    updatedList[i] = pokemonParty[i].id
+                }
+                return updatedList
+            })
+            localStorage.setItem("pokemonpartylist", JSON.stringify(currentPokemonList))
+        }
+    }, [pokemonParty])
+
+    // React.useEffect(() => {
+    //     async function getPokemon(url) {
+    //         const res = await fetch(url)
+    //         const data = await res.json()
+    //         setPokemonParty(function(prev) {
+    //             const newArr = [...prev]
+    //             newArr.push(data)
+    //             return newArr
+    //         })
+    //     }
+    //     for (let i = 0; i < 6; i++) {
+    //         let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${initialPokemon[i]}/`
+    //         getPokemon(pokeUrl)
+    //     }
+    // }, [])
     
     const pokemonPartyCards = pokemonParty.map((poke, index) => {
         return <Card
-                    //index={index}
                     key={index}
                     name={poke.species.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
