@@ -10,8 +10,8 @@
     color: var(--main-black);
 }
 
-p {
-    font-size: 0.75rem;
+.container > p {
+    font-size: 1rem;
 }
 
 .icon {

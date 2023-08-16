@@ -1,5 +1,13 @@
 @import "../global.css";
 
+.black {
+    color: var(--main-black);
+}
+
+.red {
+    color: var(--fire);
+}
+
 h1, p {
     margin: 0;
 }
@@ -120,10 +128,13 @@ p {
 }
 
 .inputRow {
+    cursor: grab;
     width: 100%;
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    background-color: var(--main-white);
+    border-radius: var(--border-radi-sm);
 }
 
 .inputRow > span {
@@ -138,6 +149,10 @@ p {
     color: var(--dragon);
     border-right: 2px solid var(--dragon);
     border-radius: var(--border-radi-sm);
+}
+
+.inputRow > span:hover {
+    background-color: color-mix(in srgb, var(--dragon) 10%, white);
 }
 
 .inputRow > input {

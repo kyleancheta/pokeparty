@@ -48,6 +48,10 @@ button:active {
     background-color: #3F17B0;
 } */
 
+/* .danger {
+    background-color: red;
+} */
+
 [hover-tooltip] {
     position: relative;
     /* cursor: default; */
