@@ -1,10 +1,11 @@
 import React from "react"
 import Button from "./Button"
+import DarkModeButton from "./DarkModeButton"
 import navStyles from "./Nav.module.css"
 import pokeball from "../img/pokeball.png"
 import { MdInfoOutline, MdSync, MdShuffle, MdTune } from "react-icons/md";
 
-export default function Nav({randomizeParty, toggleInfo, toggleCustom, ...props}) {
+export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode, toggleDarkMode, ...props}) {
     return (
         <nav className={navStyles.navigation}>
             
@@ -20,6 +21,7 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, ...props}
                 <Button primary onClick={randomizeParty} toolTip="Randomize party">
                     <MdShuffle className={navStyles.icon}/>
                 </Button>
+                {/* <DarkModeButton darkMode={darkMode} toggleDarkMode={toggleDarkMode}/> */}
                 <hr/>
                 <Button primary onClick={toggleInfo} toolTip="What is this?" tooltipPosition="left">
                     <MdInfoOutline className={navStyles.icon}/>

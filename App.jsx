@@ -16,6 +16,7 @@ export default function App() {
     const [infoVisible, setInfoVisible] = React.useState(false)
     const [customizeVisible, setCustomizeVisible] = React.useState(false)
     const [displayParty, setDisplayParty] = React.useState(false)
+    const [darkMode, setDarkMode] = React.useState(false)
     
     const [activeIndex, setActiveIndex] = React.useState(null)
 
@@ -25,6 +26,10 @@ export default function App() {
 
     function toggleCustom() {
         return setCustomizeVisible(prev => !prev)
+    }
+
+    function toggleDarkMode() {
+        return setDarkMode(prev => !prev)
     }
 
     function closePokeInfo() {
@@ -153,7 +158,14 @@ export default function App() {
                                             prevPoke={prevPokemon} 
                                             nextPoke={nextPokemon}/>
             }
-            <Nav toggleInfo={toggleInfo} toggleCustom={toggleCustom} randomParty={randomParty} randomizeParty={randomizeParty}/>
+            <Nav
+                toggleInfo={toggleInfo} 
+                toggleCustom={toggleCustom} 
+                randomParty={randomParty} 
+                randomizeParty={randomizeParty}
+                darkMode={darkMode}
+                toggleDarkMode={toggleDarkMode}
+            />
             <section className="cards">
                 {!displayParty && pokemonPartyCards || window.innerWidth > 576 && pokemonPartyCards }
             </section>
