@@ -85,13 +85,18 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
             <div className={styles.main}>
                 <div className={styles.heading}>
                     <h1>Customize Pokemon</h1>
-                    <Button onClick={closeModal}>
-                        <MdClose className={`${styles.icon} ${changesMade ? styles.red : styles.black}`}/>
-                    </Button>
+                    {   changesMade
+                        ?   <Button danger toolTip="Changes won't be saved!" tooltipPosition="left" onClick={closeModal}>
+                                <MdClose className={styles.icon}/>
+                            </Button>
+                        :   <Button onClick={closeModal}>
+                                <MdClose className={styles.icon}/>
+                            </Button>      
+                    }
                 </div>
 
                 <div className={styles.formActions}>
-                    <Button onClick={clearForm} style={{fontWeight: "700"}}>Reset</Button>
+                    <Button primary onClick={clearForm} style={{fontWeight: "700"}}>Reset</Button>
                 </div>
 
                 <form className={styles.form} onSubmit={handleSubmit}>

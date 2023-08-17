@@ -59,7 +59,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
         <div className={pokeStyles.bg}>
             <section className={ centerPeak ? pokeStyles.mainCenter : pokeStyles.main}>
                 <section className={pokeStyles.actions}>
-                    <Button onClick={toggleCenterPeak} className={pokeStyles.desktopDisplayOnly}>
+                    <Button onClick={toggleCenterPeak} className={pokeStyles.desktopDisplayOnly} toolTip="Change peak">
                         {
                             centerPeak 
                             ?   <MdKeyboardTab className={pokeStyles.icon}/>
@@ -67,11 +67,11 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                         }
                     </Button>
                     <section className={pokeStyles.navActions}>    
-                        <Button onClick={prevPoke} tooltip="Previous Pokemon" tooltipPosition="bottom">
+                        <Button onClick={prevPoke} toolTip="Previous Pokemon">
                             <MdArrowBack className={pokeStyles.icon}/>
                         </Button>
                         <p>{activeIndex+1} / 6</p>
-                        <Button onClick={nextPoke} tooltip="Next Pokemon" tooltipPosition="bottom">
+                        <Button onClick={nextPoke} toolTip="Next Pokemon">
                             <MdArrowForward className={pokeStyles.icon}/>
                         </Button>
                     </section>

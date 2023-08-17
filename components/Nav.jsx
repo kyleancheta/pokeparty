@@ -14,14 +14,14 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, ...props}
             </section>
 
             <section className={navStyles.actions}>
-                <Button onClick={toggleCustom} tooltip="Customize party" tooltipPosition="left">
+                <Button primary onClick={toggleCustom} toolTip="Customize party">
                     <MdTune className={navStyles.icon}/>
                 </Button>
-                <Button onClick={randomizeParty} tooltip="Randomize party" tooltipPosition="left">
+                <Button primary onClick={randomizeParty} toolTip="Randomize party">
                     <MdShuffle className={navStyles.icon}/>
                 </Button>
                 <hr/>
-                <Button onClick={toggleInfo} tooltip="What is this?" tooltipPosition="left">
+                <Button primary onClick={toggleInfo} toolTip="What is this?" tooltipPosition="left">
                     <MdInfoOutline className={navStyles.icon}/>
                 </Button>
             </section>

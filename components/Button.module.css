@@ -1,12 +1,12 @@
 button {
+    position: relative;
     cursor: pointer;
 
     padding: 6px;
-    color: var(--dragon);
+    color: var(--main-black);
     background-color: color-mix(in srgb, var(--main-white) 50%), white;
     border-radius: var(--border-radi-circ);
     border: none;
-    /* box-shadow: 0 1px 3px 0 var(--main-shadow-25); */
 
     font-size: 16px;
     line-height: 100%;
@@ -14,130 +14,113 @@ button {
 }
 
 button:hover {
-    background-color: color-mix(in srgb, var(--dragon) 20%, white);
-    /* box-shadow: 0 2px 1px 0 var(--main-shadow-50); */
-    /* top: 14px; */
+    background-color: color-mix(in srgb, var(--main-black) 20%, white);
 }
 
 button:focus {
     outline: none;
-    /* border: 1px dashed var(--dragon); */
-    background-color: color-mix(in srgb, var(--dragon) 40%, white);
+    background-color: color-mix(in srgb, var(--main-black) 40%, white);
 }
 
 button:active {
     color: var(--main-white);
-    background-color: var(--dragon);
-    /* box-shadow: 0 0 1px 0 var(--main-shadow-25); */
-    /* top: 16px; */
+    background-color: var(--main-black);
 }
 
-/* .primary {
-    margin-top: 1rem;
-    width: 50%;
-    max-width: 200px;
-    font-size: 1.2rem;
-    padding: 12px 16px;
-    border-radius: var(--border-radi-md);
+/*  TOOL TIP SETUP + STYLING    */
+
+[data-text]:before {
+    content: attr(data-text); /* here's the magic */
+    position: absolute;
+    z-index: 20;
+
+    /* vertically center */
+    top: 100%;
+    margin: 4px 0 0 0;
+    
+    /* move to left */
+    transform: translateX(-60px);
+    /* right: 5%; */
+    /* margin-right: 4px; */
+
+    /* basic styles */
+    width: 120px;
+    padding: 6px 8px;
+    border-radius: var(--border-radi-sm);
+    background: var(--main-shadow-90);
     color: var(--main-white);
-    background-color: var(--dragon);
-    border: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+
+    display: none; /* hide by default */
+}
+
+[data-text]:hover:before {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-basis: content; */
+    animation: fade-in 1000ms ease-in-out;
+}
+
+[data-position="left"]:before {
+    top: 50%;
+    transform: translateY(-60%);
+    
+    /* move to right */
+    right: 100%;
+    margin-right: 4px; /* and add a small left margin */
+}
+
+.primary {
+    color: var(--dragon);
+    background-color: color-mix(in srgb, var(--main-white) 50%), white;
 }
 
 .primary:hover {
-    background-color: #3F17B0;
-} */
-
-/* .danger {
-    background-color: red;
-} */
-
-[hover-tooltip] {
-    position: relative;
-    /* cursor: default; */
+    background-color: color-mix(in srgb, var(--dragon) 20%, white);
 }
 
-[hover-tooltip]:hover::before {
-    content: attr(hover-tooltip);
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    position: absolute;
-    display: block;
-    left: 50%;
-    min-width: 144px;
-    max-width: 200px;
-    bottom: calc(100% + 10px);
-    transform: translate(-50%);
-    /* animation: fade-in 500ms ease-in-out; */
-    animation-name: fade-in;
-    animation-duration: 500ms;
-    background: var(--main-black);
-    border-radius: var(--border-radi-sm);
-    padding: 8px 10px;
+.primary:focus {
+    background-color: color-mix(in srgb, var(--dragon) 40%, white);
+}
+
+.primary:active {
     color: var(--main-white);
-    z-index: 1;
-    animation-delay: 2s;
+    background-color: var(--dragon);
 }
 
-[hover-tooltip]:hover::after {
-    content: "";
-    position: absolute;
-    display: block;
-    left: 50%;
-    width: 0;
-    height: 0;
-    bottom: calc(100% + 6px);
-    margin-left: -3px;
-    border: 1px solid var(--main-black);
-    border-color: var(--main-black) transparent transparent transparent;
-    border-width: 4px 6px 0;
-    /* animation: fade-in 500ms ease-in-out; */
-    animation-name: fade-in;
-    animation-duration: 500ms;
-    z-index: 1;
-    animation-delay: 2s;
-  }
-
-[hover-tooltip][tooltip-position=bottom]:hover::before {
-    left: 40%;
-    bottom: auto;
-    top: calc(100% + 10px);
-}
-[hover-tooltip][tooltip-position=bottom]:hover::after {
-    left: 40%;
-    bottom: auto;
-    top: calc(100% + 6px);
-    border-color: transparent transparent #272727;
-    border-width: 0 6px 4px;
+.danger {
+    color: var(--fire);
+    background-color: color-mix(in srgb, var(--main-white) 50%), white;
 }
 
-[hover-tooltip][tooltip-position=left]:hover::before {
-    left: auto;
-    bottom: 0;
-    transform: translateX(-5px) translateY(0%);
-
-    right: calc(20px + 10px);
+.danger:hover {
+    background-color: color-mix(in srgb, var(--fire) 20%, white);
 }
-[hover-tooltip][tooltip-position=left]:hover::after {
-    left: auto;
-    width: 0;
-    height: 0;
-    bottom: 0;
-    transform: translateX(-5px) translateY(-75%);
 
-    /* margin-left: -3px; */
-    right: calc(20px + 6px);
-    border-color: transparent transparent transparent #272727;
-    border-width: 6px 0 6px 4px;
+.danger:focus {
+    background-color: color-mix(in srgb, var(--fire) 40%, white);
+}
+
+.danger:active {
+    color: var(--main-white);
+    background-color: var(--fire);
 }
   
 @keyframes fade-in {
     from {
-      opacity: 0;
+        opacity: 0;
+
+    }
+    50% {
+        opacity: 0;
+
     }
     to {
-      opacity: 1;
+        opacity: 1;
+
     }
 }
 

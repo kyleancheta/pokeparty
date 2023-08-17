@@ -2,37 +2,35 @@ import React from "react"
 import classnames from "classnames"
 import btnStyles from "./Button.module.css"
 
-export default function Button({primary, danger, disabled, children, className, tooltip, tooltipPosition, ...props}) {
+export default function Button({primary, danger, disabled, children, className, toolTip, tooltipPosition, ...props}) {
     const allClasses = classnames(className, btnStyles)
 
     if (disabled) {
         return (
-            <button style={{opacity: 0.50, cursor: "not-allowed"}} className={allClasses} {...props}>
+            <button style={{opacity: 0.50, cursor: "not-allowed"}} className={allClasses} data-text={toolTip} data-position={tooltipPosition} {...props}>
                 {children}
             </button> 
         )
     }
     else if (primary) {
-        // console.log("primary pog")
-        const primaryClasses = classnames(className, btnStyles, "primary")
+        const primaryClasses = classnames(className, btnStyles.primary)
         return (
-            <button className={primaryClasses} {...props}>
+            <button className={primaryClasses} data-text={toolTip} data-position={tooltipPosition} {...props}>
                 {children}
             </button> 
         )
     }
     else if (danger) {
-        // console.log("primary pog")
-        const dangerClasses = classnames(className, btnStyles, btnStyles.danger)
+        const dangerClasses = classnames(className, btnStyles.danger)
         return (
-            <button className={dangerClasses} {...props}>
+            <button className={dangerClasses} data-text={toolTip} data-position={tooltipPosition} {...props}>
                 {children}
             </button> 
         )
     }
     else {
         return (
-            <button className={allClasses} {...props}>
+            <button className={allClasses} data-text={toolTip} data-position={tooltipPosition} {...props}>
                 {children}
             </button> 
         )
