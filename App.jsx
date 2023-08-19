@@ -149,7 +149,7 @@ export default function App() {
     })
 
     return (
-        <section className="main">
+        <section className={`main ${darkMode ? 'darkmode' : null}`}>
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
             {customizeVisible && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
             {displayParty && <PokemonInfo   pokemon={pokemonParty} 

@@ -1,12 +1,5 @@
-@import "../global.css";
-
-.black {
-    color: var(--main-black);
-}
-
-.red {
-    color: var(--fire);
-}
+/* @import "../global.css";
+@import "../colors.css"; */
 
 h1, p {
     margin: 0;
@@ -37,7 +30,7 @@ p {
     border-radius: var(--border-radi-md);
     color: var(--main-white);
     background: linear-gradient(135deg, var(--dragon), var(--bug));
-    box-shadow: 0 0 2px 1px var(--main-shadow-05);
+    box-shadow: 0 0 2px 1px var(--shadow-05);
     border: none;
     transition: all 300ms ease-out;
 }
@@ -51,7 +44,7 @@ p {
 
 .btn:hover {
     background: linear-gradient(90deg, var(--dragon), var(--bug));
-    box-shadow: 0 2px 4px 2px var(--main-shadow-25);
+    box-shadow: 0 2px 4px 2px var(--shadow-25);
 }
 
 .btn:focus {
@@ -69,7 +62,8 @@ p {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-shadow-90);
+    background-color: var(--shadow-dark);
+    /* filter: blur(2px); */
 
     display: flex;
     justify-content: center;
@@ -77,15 +71,17 @@ p {
 }
 
 .main {
+    z-index: 11;
     overflow-y: scroll;
     overflow-x: hidden;
+
     /*  Hiding the scrollbar but allowing it to scroll on Firefox and Edge*/
     scrollbar-width: none;  /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
 
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-white);
+    background-color: var(--bg);
 
     display: flex;
     flex-direction: column;
@@ -133,7 +129,7 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background-color: var(--main-white);
+    background-color: var(--bg);
     border-radius: var(--border-radi-sm);
 }
 
@@ -146,13 +142,13 @@ p {
     line-height: 100%;
     font-weight: 700;
     padding: 0.5rem;
-    color: var(--dragon);
-    border-right: 2px solid var(--dragon);
+    color: var(--theme);
+    border-right: 2px solid var(--theme);
     border-radius: var(--border-radi-sm);
 }
 
 .inputRow > span:hover {
-    background-color: color-mix(in srgb, var(--dragon) 10%, white);
+    background-color: color-mix(in srgb, var(--theme) 50%, var(--main));
 }
 
 .inputRow > input {
@@ -162,22 +158,24 @@ p {
     /* height: 24px; */
     font-size: 1rem;
     text-indent: 0;
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--border-primary);
+    color: var(--copy);
+    background-color: var(--bg);
     border-radius: var(--border-radi-md);
     transition: all 200ms ease-out;
 }
 
 .inputRow > input:hover {
     text-indent: 3px;
-    border: 1px solid var(--dragon);
-    box-shadow: 0 0 2px var(--dragon);
+    border: 1px solid var(--theme);
+    box-shadow: 0 0 2px var(--theme);
 
     /* box-shadow: 0 0 4px color-mix(in srgb, var(--dragon) 50%, white); */
 }
 
 .inputRow > input:focus {
     text-indent: 0;
-    outline: 2px solid var(--dragon);
+    outline: 2px solid var(--theme);
 }
 
 .inputRow > .sprite {

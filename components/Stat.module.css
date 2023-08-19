@@ -9,7 +9,7 @@
 }
 
 .main > span {
-    color: var(--grey-100);
+    color: var(--label);
     text-overflow: ellipsis;
     font-size: 0.75rem;
     font-weight: 400;
@@ -17,7 +17,7 @@
 }
 
 .main > p {
-    color: var(--black-200);
+    color: var(--headline-secondary);
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 100%;

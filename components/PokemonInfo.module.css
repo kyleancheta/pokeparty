@@ -5,7 +5,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-shadow-50);
+    background-color: var(--shadow-dark);
 
     display: flex;
     justify-content: center;
@@ -24,8 +24,8 @@ h1, h2, h3, h4, p {
 hr {
     margin: 0;
     width: 100%;
-    border: 0.5px solid var(--grey-400);
-    color: var(--grey-400);
+    border: 0.5px solid var(--border-secondary);
+    color: var(--border-secondary);
 }
 
 .main {
@@ -44,8 +44,8 @@ hr {
     gap: 16px;
     padding: 40px 32px 24px;
     /* margin-bottom: 64px; */
-    background-color: var(--main-white);
-    box-shadow: -2px 0 4px var(--main-shadow-50);
+    background-color: var(--bg);
+    box-shadow: -2px 0 4px var(--shadow-50);
 }
 
 /*  Hiding the scrollbar but allowing it to scroll on Chrome, Safari and Opera*/
@@ -69,7 +69,7 @@ hr {
     gap: 16px;
     padding: 40px 32px 24px;
     /* margin-bottom: 64px; */
-    background-color: var(--main-white);
+    background-color: var(--bg);
 }
 
 .desktopDisplayOnly {
@@ -86,7 +86,7 @@ hr {
 }
 
 .navActions > p {
-    color: var(--black-300);
+    color: var(--headline-tertiary);
 }
 
 .navActions {
@@ -139,7 +139,7 @@ hr {
 .name > h4 {
     font-size: 1.2rem;
     font-weight: 400;
-    color: var(--grey-100)
+    color: var(--copy)
 }
 
 .types {
@@ -149,7 +149,7 @@ hr {
 }
 
 .types > h4 {
-    color: var(--grey-100);
+    color: var(--copy);
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -207,7 +207,7 @@ hr {
 
 @media screen and (min-width: 576px) {
     .bg {
-        background-color: var(--main-shadow-90);
+        background-color: var(--shadow-dark);
     }
     .main {
         position: fixed;
@@ -265,7 +265,7 @@ hr {
         gap: 16px;
         padding: 32px;
         border-radius: var(--border-radi-xl);
-        box-shadow: 0 2px 4px var(--main-shadow-50);
+        box-shadow: 0 2px 4px var(--shadow-50);
     }
 
     .actions {

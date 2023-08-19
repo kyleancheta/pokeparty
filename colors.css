@@ -1,0 +1,176 @@
+@import "./global.css";
+
+:root {
+    --theme: var(--dragon);
+    --main: var(--black-300);
+    --bg: var(--white-100);
+
+    --headline-primary: var(--black-200);
+    --headline-secondary: var(--black-300);
+    --headline-tertiary: var(--black-400);
+
+    --copy: var(--black-500);
+    --label: var(--grey-100);
+    --link: var(--theme);
+
+    --border-primary: var(--grey-500);
+    --border-secondary: var(--white-500);
+    --border-tertiary: var(--white-400);
+
+    --shadow-05: var(--dark-shadow-05);
+    --shadow-25: var(--dark-shadow-25);
+    --shadow-50: var(--dark-shadow-50);
+    --shadow-75: var(--dark-shadow-75);
+    --shadow-90: var(--dark-shadow-90);
+
+    --shadow-dark: var(--dark-shadow-96);
+}
+
+.darkmode {
+    --theme: var(--electric);
+    --main: var(--white-100);
+    --bg: var(--black-300);
+
+    --headline-primary: var(--white-200);
+    --headline-secondary: var(--white-300);
+    --headline-tertiary: var(--white-400);
+
+    --copy: var(--white-500);
+    --label: var(--grey-500);
+    --link: var(--theme);
+
+    --border-primary: var(--grey-100);
+    --border-secondary: var(--black-500);
+    --border-tertiary: var(--black-400);
+
+    --shadow-05: var(--light-shadow-05);
+    --shadow-25: var(--light-shadow-25);
+    --shadow-50: var(--light-shadow-50);
+    --shadow-75: var(--light-shadow-75);
+    --shadow-90: var(--light-shadow-90);
+}
+
+::selection {
+    background: var(--theme);
+    color: var(--main-white);
+}
+
+::selection.darkmode {
+    background: var(--theme);
+    color: var(--fire);
+}
+
+
+/*  TYPE MAIN COLOR   */
+
+.ghost {
+    color: var(--ghost);
+}
+.fairy {
+    color: var(--fairy);
+}
+.rock {
+    color: var(--rock);
+}
+.dark {
+    color: var(--dark);
+}
+.fire {
+    color: var(--fire);
+}
+.bug {
+    color: var(--bug);
+}
+.water {
+    color: var(--water);
+}
+.ground {
+    color: var(--ground);
+}
+.dragon {
+    color: var(--dragon);
+}
+.poison {
+    color: var(--poison);
+}
+.flying {
+    color: var(--flying);
+}
+.psychic {
+    color: var(--psychic);
+}
+.normal {
+    color: var(--normal);
+}
+.fighting {
+    color: var(--fighting);
+}
+.steel {
+    color: var(--steel);
+}
+.electric {
+    color: var(--electric);
+}
+.grass {
+    color: var(--grass);
+}
+.ice {
+    color: var(--ice);
+}
+
+/*  TYPE BACKGROUND COLOR   */
+
+.ghost-bg {
+    background-color: var(--ghost);
+}
+.fairy-bg {
+    background-color: var(--fairy);
+}
+.rock-bg {
+    background-color: var(--rock);
+}
+.dark-bg {
+    background-color: var(--dark);
+}
+.fire-bg {
+    background-color: var(--fire);
+}
+.bug-bg {
+    background-color: var(--bug);
+}
+.water-bg {
+    background-color: var(--water);
+}
+.ground-bg {
+    background-color: var(--ground);
+}
+.dragon-bg {
+    background-color: var(--dragon);
+}
+.poison-bg {
+    background-color: var(--poison);
+}
+.flying-bg {
+    background-color: var(--flying);
+}
+.psychic-bg {
+    background-color: var(--psychic);
+}
+.normal-bg {
+    background-color: var(--normal);
+}
+.fighting-bg {
+    background-color: var(--fighting);
+}
+.steel-bg {
+    background-color: var(--steel);
+}
+.electric-bg {
+    background-color: var(--electric);
+}
+.grass-bg {
+    background-color: var(--grass);
+}
+.ice-bg {
+    background-color: var(--ice);
+}

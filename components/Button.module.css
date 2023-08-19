@@ -3,8 +3,8 @@ button {
     cursor: pointer;
 
     padding: 6px;
-    color: var(--main-black);
-    background-color: color-mix(in srgb, var(--main-white) 50%), white;
+    color: var(--main);
+    background-color: var(--bg);
     border-radius: var(--border-radi-circ);
     border: none;
 
@@ -14,17 +14,17 @@ button {
 }
 
 button:hover {
-    background-color: color-mix(in srgb, var(--main-black) 20%, white);
+    background-color: color-mix(in srgb, var(--main) 20%, var(--bg));
 }
 
 button:focus {
     outline: none;
-    background-color: color-mix(in srgb, var(--main-black) 40%, white);
+    background-color: color-mix(in srgb, var(--main) 40%, var(--bg));
 }
 
 button:active {
-    color: var(--main-white);
-    background-color: var(--main-black);
+    color: var(--bg);
+    background-color: var(--main);
 }
 
 /*  TOOL TIP SETUP + STYLING    */
@@ -47,7 +47,7 @@ button:active {
     width: 120px;
     padding: 6px 8px;
     border-radius: var(--border-radi-sm);
-    background: var(--main-shadow-90);
+    background: var(--main-black);
     color: var(--main-white);
     font-size: 0.75rem;
     font-weight: 700;
@@ -74,34 +74,35 @@ button:active {
 }
 
 .primary {
-    color: var(--dragon);
-    background-color: color-mix(in srgb, var(--main-white) 50%), white;
+    color: var(--theme);
+    background-color: var(--bg);
+    /* background-color: color-mix(in srgb, var(--bg) 50%), white; */
 }
 
 .primary:hover {
-    background-color: color-mix(in srgb, var(--dragon) 20%, white);
+    background-color: color-mix(in srgb, var(--theme) 20%, var(--bg));
 }
 
 .primary:focus {
-    background-color: color-mix(in srgb, var(--dragon) 40%, white);
+    background-color: color-mix(in srgb, var(--theme) 40%, var(--bg));
 }
 
 .primary:active {
     color: var(--main-white);
-    background-color: var(--dragon);
+    background-color: var(--theme);
 }
 
 .danger {
     color: var(--fire);
-    background-color: color-mix(in srgb, var(--main-white) 50%), white;
+    background-color: color-mix(in srgb, var(--bg) 50%), var(--bg);
 }
 
 .danger:hover {
-    background-color: color-mix(in srgb, var(--fire) 20%, white);
+    background-color: color-mix(in srgb, var(--fire) 20%, var(--bg));
 }
 
 .danger:focus {
-    background-color: color-mix(in srgb, var(--fire) 40%, white);
+    background-color: color-mix(in srgb, var(--fire) 40%, var(--bg));
 }
 
 .danger:active {

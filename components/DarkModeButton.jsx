@@ -7,14 +7,14 @@ export default function DarkModeButton({darkMode, toggleDarkMode, ...props}) {
 
     if (darkMode) {
         return (
-            <Button primary onClick={toggleDarkMode}>
+            <Button primary onClick={toggleDarkMode} {...props}>
                 <MdDarkMode className={styles.icon}/>
             </Button>
         )
     }
     else {
         return (
-           <Button primary onClick={toggleDarkMode}>
+           <Button primary onClick={toggleDarkMode} {...props}>
                 <MdLightMode className={styles.icon}/>
             </Button>
         )

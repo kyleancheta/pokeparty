@@ -21,7 +21,7 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode,
                 <Button primary onClick={randomizeParty} toolTip="Randomize party">
                     <MdShuffle className={navStyles.icon}/>
                 </Button>
-                {/* <DarkModeButton darkMode={darkMode} toggleDarkMode={toggleDarkMode}/> */}
+                <DarkModeButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} toolTip="Toggle dark mode"/>
                 <hr/>
                 <Button primary onClick={toggleInfo} toolTip="What is this?" tooltipPosition="left">
                     <MdInfoOutline className={navStyles.icon}/>

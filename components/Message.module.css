@@ -1,3 +1,6 @@
+@import "../global.css";
+@import "../colors.css";
+
 .container {
     width: 90%;
     display: flex;
@@ -6,8 +9,8 @@
     gap: 0.25rem;
     padding: 0.5rem;
     border-radius: var(--border-radi-md);
-    background-color: color-mix(in srgb, var(--black-100) 10%, white);
-    color: var(--main-black);
+    background-color: color-mix(in srgb, var(--main) 10%, white);
+    color: var(--main);
 }
 
 .container > p {
@@ -16,7 +19,7 @@
 
 .icon {
     margin-top: 4px;
-    color: var(--main-black);
+    color: var(--main);
     width: 2rem;
     /* height: 2rem; */
     max-height: 2rem;
@@ -41,7 +44,7 @@
      
     .icon {
         margin-top: 4px;
-        color: var(--main-black);
+        color: var(--main);
         width: 2rem;
         max-height: 2rem;
     }

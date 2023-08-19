@@ -16,8 +16,8 @@ export default function Card({name, image, types, ...props}) {
             </div>
             <h2 className={cardStyles.name}>{name}</h2>
             <section className={cardStyles.types}>
-                <div className={`${cardStyles.pill} ${typeOne}`}><p>{typeOne}</p></div>
-                {typeTwo && <div className={`${cardStyles.pill} ${typeTwo}`}><p>{typeTwo}</p></div>}
+                <div className={`${cardStyles.pill} ${typeOne}-bg`}><p>{typeOne}</p></div>
+                {typeTwo && <div className={`${cardStyles.pill} ${typeTwo}-bg`}><p>{typeTwo}</p></div>}
             </section>
         </div>
     )

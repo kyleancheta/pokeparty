@@ -1,21 +1,37 @@
 :root {
-    --main-black: #1A1A1A;
-    --main-white: #FEFEFE;
+    --black-100: #1A1A1A;
+    --black-200: #202020;
+    --black-300: #2A2A2A;
+    --black-400: #303030;
+    --black-500: #3A3A3A;
+    
+    --grey-100: #7A7A7A;
+    --grey-200: #8A8A8A;
+    --grey-300: #9A9A9A;
+    --grey-400: #AAAAAA;
+    --grey-500: #BABABA;
+    
+    --white-100: #FEFEFE;
+    --white-200: #FAFAFA;
+    --white-300: #F2F2F2;
+    --white-400: #EEEEEE;
+    --white-500: #ECECEC;
+    
+    --dark-shadow-05: rgba(26, 26, 26, 0.05);
+    --dark-shadow-25: rgba(26, 26, 26, 0.25);
+    --dark-shadow-50: rgba(26, 26, 26, 0.50);
+    --dark-shadow-75: rgba(26, 26, 26, 0.75);
+    --dark-shadow-90: rgba(26, 26, 26, 0.90);
+    --dark-shadow-96: rgba(26, 26, 26, 0.96);
 
-    --black-100: #2A2A2A;
-    --black-200: #3A3A3A;
-    --black-300: #4A4A4A;
-
-    --grey-100: #888;
-    --grey-200: #AAA;
-    --grey-300: #CCC;
-    --grey-400: #EEE;
-
-    --main-shadow-05: rgba(26, 26, 26, 0.05);
-    --main-shadow-25: rgba(26, 26, 26, 0.25);
-    --main-shadow-50: rgba(26, 26, 26, 0.50);
-    --main-shadow-75: rgba(26, 26, 26, 0.75);
-    --main-shadow-90: rgba(26, 26, 26, 0.90);
+    --light-shadow-05: rgba(254, 254, 254, 0.05);
+    --light-shadow-25: rgba(254, 254, 254, 0.25);
+    --light-shadow-50: rgba(254, 254, 254, 0.50);
+    --light-shadow-75: rgba(254, 254, 254, 0.75);
+    --light-shadow-90: rgba(254, 254, 254, 0.90);
+    
+    --main-black: var(--black-100);
+    --main-white: var(--white-100);
 
     --ghost: #622C7B;
     --fairy: #DF5799;
@@ -41,60 +57,4 @@
     --border-radi-lg: 8px;
     --border-radi-xl: 16px;
     --border-radi-circ: 100px;
-}
-
-.ghost {
-    background-color: var(--ghost);
-}
-.fairy {
-    background-color: var(--fairy);
-}
-.rock {
-    background-color: var(--rock);
-}
-.dark {
-    background-color: var(--dark);
-}
-.fire {
-    background-color: var(--fire);
-}
-.bug {
-    background-color: var(--bug);
-}
-.water {
-    background-color: var(--water);
-}
-.ground {
-    background-color: var(--ground);
-}
-.dragon {
-    background-color: var(--dragon);
-}
-.poison {
-    background-color: var(--poison);
-}
-.flying {
-    background-color: var(--flying);
-}
-.psychic {
-    background-color: var(--psychic);
-}
-.normal {
-    color: var(--main-black);
-    background-color: var(--normal);
-}
-.fighting {
-    background-color: var(--fighting);
-}
-.steel {
-    background-color: var(--steel);
-}
-.electric {
-    background-color: var(--electric);
-}
-.grass {
-    background-color: var(--grass);
-}
-.ice {
-    background-color: var(--ice);
 }
