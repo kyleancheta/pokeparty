@@ -9,6 +9,9 @@ import CustomizeModal from "./components/CustomizeModal"
 export default function App() {
     const initialPokemon = [778, 248, 637, 768, 330, 169]
 
+    const [darkMode, setDarkMode] = React.useState(
+        () => JSON.parse(localStorage.getItem("pokemonparty-darkmode")) || false
+    )
     const [currentPokemonList, setCurrentPokemonList] = React.useState(
         () => JSON.parse(localStorage.getItem("pokemonpartylist")) || initialPokemon
     )
@@ -16,7 +19,6 @@ export default function App() {
     const [infoVisible, setInfoVisible] = React.useState(false)
     const [customizeVisible, setCustomizeVisible] = React.useState(false)
     const [displayParty, setDisplayParty] = React.useState(false)
-    const [darkMode, setDarkMode] = React.useState(false)
     
     const [activeIndex, setActiveIndex] = React.useState(null)
 
@@ -29,7 +31,12 @@ export default function App() {
     }
 
     function toggleDarkMode() {
-        return setDarkMode(prev => !prev)
+        // localStorage.setItem("pokemonparty-darkmode", JSON.stringify(!darkMode))
+        // return setDarkMode(prev => !prev)
+        setDarkMode(prevSetting => {
+            localStorage.setItem("pokemonparty-darkmode", JSON.stringify(!prevSetting))
+            return !prevSetting
+        })
     }
 
     function closePokeInfo() {

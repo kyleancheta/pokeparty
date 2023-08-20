@@ -7,11 +7,10 @@ function InfoModal(props) {
             <div className={modalStyles.main}>
                 <h1>What is this site?</h1>
                 <p>
-                    This is just a site I built for fun, to practice my React skills. It's far from any interactivity for now, but I'm working on it!
-                    Refer to this info box to check what I'm workin' on next!
+                    This is just a site I built for fun, to practice my React skills. Refer to this info box to check what I'm workin' on next!
                 </p>
                 <hr className={modalStyles.divider}/>
-                <p><strong>Next:</strong> Choose your own Pokemon!</p>
+                <p><strong>Next:</strong> Theme color picker! Oh, and a more detailed FAQ in this box 😅</p>
                 <button className={modalStyles.btn} onClick={props.toggleInfo}>Close</button>
             </div>
         </div>

@@ -60,6 +60,7 @@ p {
 
 @media screen and (min-width: 568px) {
     .main {
+        margin: -200px 0 0 0;
         width: 50%;
         max-width: 400px;
         height: auto;

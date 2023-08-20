@@ -128,7 +128,7 @@ p {
     width: 100%;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 4px;
     background-color: var(--bg);
     border-radius: var(--border-radi-sm);
 }
@@ -143,12 +143,13 @@ p {
     font-weight: 700;
     padding: 0.5rem;
     color: var(--theme);
-    border-right: 2px solid var(--theme);
+    /* border-right: 2px solid var(--theme); */
     border-radius: var(--border-radi-sm);
+    flex-shrink: 0;
 }
 
-.inputRow > span:hover {
-    background-color: color-mix(in srgb, var(--theme) 50%, var(--main));
+.inputRow:hover {
+    background-color: color-mix(in srgb, var(--theme) 15%, var(--bg));
 }
 
 .inputRow > input {
@@ -160,8 +161,10 @@ p {
     text-indent: 0;
     border: 1px solid var(--border-primary);
     color: var(--copy);
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
+    background-color: color-mix(in srgb, var(--bg) 96%, var(--main));
     border-radius: var(--border-radi-md);
+    flex-grow: 1;
     transition: all 200ms ease-out;
 }
 
@@ -169,8 +172,6 @@ p {
     text-indent: 3px;
     border: 1px solid var(--theme);
     box-shadow: 0 0 2px var(--theme);
-
-    /* box-shadow: 0 0 4px color-mix(in srgb, var(--dragon) 50%, white); */
 }
 
 .inputRow > input:focus {
@@ -181,6 +182,7 @@ p {
 .inputRow > .sprite {
     width: 40px;
     height: 40px;
+    margin-left: 16px;
     /* padding-left: 0.75rem;  */
     /* border-left: 2px solid var(--grey-400);
     border-radius: var(--border-radi-md); */

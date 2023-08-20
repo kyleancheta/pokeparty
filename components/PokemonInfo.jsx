@@ -89,7 +89,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                         <h4>#{activePokemon.id}</h4>
                     </section>
                     <section className={pokeStyles.types}>
-                        <h4>Types</h4>
+                        <h4>Type{typeTwo ? "s" : ""}</h4>
                         <section className={pokeStyles.group}>
                             <div className={`${pokeStyles.pill} ${typeOne}-bg`}><p>{typeOne}</p></div>
                             {typeTwo && <div className={`${pokeStyles.pill} ${typeTwo}-bg`}><p>{typeTwo}</p></div>}
