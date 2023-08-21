@@ -3,7 +3,7 @@ import Button from "./Button"
 import DarkModeButton from "./DarkModeButton"
 import navStyles from "./Nav.module.css"
 import pokeball from "../img/pokeball.png"
-import { MdInfoOutline, MdSync, MdShuffle, MdTune } from "react-icons/md";
+import { MdInfoOutline, MdShuffle, MdTune } from "react-icons/md";
 
 export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode, toggleDarkMode, ...props}) {
     return (

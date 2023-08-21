@@ -44,7 +44,7 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
         event.preventDefault()
         const newParty = []
         for (let poke in formData) {
-            newParty.push(formData[poke].name)
+            newParty.push(formData[poke].name.toLowerCase())
         }
         // console.log(newParty)
         toggleCustom()
