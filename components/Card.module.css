@@ -8,18 +8,19 @@
     max-width: 158px;
     padding: 12px 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
     flex-direction: column;
     background-color: var(--bg);
     border-radius: 12px;
-    box-shadow: 0px 12px 25px 0px var(--shadow-05), 0px 0px 15px 0px var(--shadow-25);
+    box-shadow: 0px 4px 12px 0px var(--shadow-05), 0px 0px 8px 0px var(--shadow-25);
     transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
     margin-top: -6px;
-    box-shadow: 0px 6px 15px 0px var(--shadow-25), 0px 2px 6px 0px var(--shadow-50);
+    box-shadow: 0px 6px 18px 0px var(--shadow-25), 0px 2px 4px 0px var(--shadow-50);
 }
 
 .container {
@@ -54,6 +55,7 @@ h2.name {
     width: 100%;
     color: var(--headline-primary);
     font-size: 18px;
+    text-transform: capitalize;
     align-self: stretch;
     text-align: center;
     text-overflow: ellipsis;
@@ -88,7 +90,7 @@ h2.name {
 }
 
 @media screen and (min-width: 768px) {
-    section.cards {
+    /* section.cards {
         max-width: 100%;
         margin: 64px 0;
         padding: 0 40px;
@@ -96,17 +98,19 @@ h2.name {
         grid-template-columns: auto auto auto;
         
         gap: 16px 20px;
-    }
-
+    } */
+    
     .card {
         max-height: 220px;
         width: 186px;
         max-width: 228px;
         padding: 16px 14px;
+        box-shadow: 0px 2px 6px 4px var(--shadow-05), 0px 1px 4px 0px var(--shadow-25);
     }
-
+    
     .card:hover {
         margin-top: -10px;
+        box-shadow: 0px 6px 12px 2px var(--shadow-25), 0px 2px 6px 1px var(--shadow-50);
     }
     
     .container, .artwork {

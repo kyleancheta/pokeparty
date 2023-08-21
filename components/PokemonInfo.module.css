@@ -83,7 +83,12 @@ hr {
 
     width: inherit;
     position: fixed;
+    /* background-color: var(--bg); */
+    /* filter: blur(2px); */
+    /* background-color: rgba(var(--bg), 0.75);
+    backdrop-filter: blur(2px); */
 }
+
 
 .navActions > p {
     color: var(--headline-tertiary);
@@ -110,8 +115,9 @@ hr {
 }
 
 .image {
-    background: no-repeat center url("../img/pokeball-bg-lg.png");
-    width: 100%;
+    background: no-repeat center/contain url("../img/pokeball-bg-lg.png");
+    width: max(100%, 256px);
+    max-width: 256px;
     height: auto;
     object-fit: cover;
     
@@ -122,7 +128,8 @@ hr {
 }
 
 .image > img {
-    max-width: 80%;
+    width: 80%;
+    max-width: 196px;
 }
 
 .name {
