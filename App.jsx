@@ -44,19 +44,11 @@ export default function App() {
     }
 
     function nextPokemon() {
-        if (activeIndex + 1 > 5) {
-            return setActiveIndex(0)
-        } else {
-            return setActiveIndex(prev => prev+1)
-        }
+        setActiveIndex(prev => (prev + 1) % 6)
     }
 
     function prevPokemon() {
-        if (activeIndex - 1 < 0) {
-            return setActiveIndex(5)
-        } else {
-            return setActiveIndex(prev => prev-1)
-        }
+        setActiveIndex(prev => ((prev - 1) % 6 + 6) % 6)
     }
 
     function randomParty() {

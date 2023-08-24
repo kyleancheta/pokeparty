@@ -1,7 +1,23 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styles from "./InfoModal.module.css"
 
-function InfoModal(props) {
+function InfoModal({ toggleInfo }) {
+
+    function handleKeyDown(event) {
+        console.log('A key was pressed', event)
+        if (event.keyCode === 27) {
+            toggleInfo()
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown)
+        console.log("Event listener added")
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            console.log("Event listener removed")
+        }
+    }, [])
+
     return (
         <div className={styles.bg}>
             <div className={styles.main}>
@@ -27,7 +43,7 @@ function InfoModal(props) {
                     </ul>
                 </details>
                 <hr className={styles.divider}/>
-                <button className={styles.btn} onClick={props.toggleInfo}>Close</button>
+                <button className={styles.btn} onClick={toggleInfo}>Close</button>
             </div>
         </div>
     )

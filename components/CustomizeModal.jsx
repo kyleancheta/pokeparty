@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Button from "./Button"
 import Message from "./Message"
 import styles from "./CustomizeModal.module.css"
@@ -79,6 +79,21 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
         setFormData(copyListItems)
         setChangesMade(true)
     }
+
+    function handleKeyDown(event) {
+        console.log('A key was pressed', event)
+        if (event.keyCode === 27) {
+            closeModal()
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown)
+        console.log("Event listener added")
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            console.log("Event listener removed")
+        }
+    }, [])
 
     return (
         <div className={styles.bg}>

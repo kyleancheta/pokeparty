@@ -1,4 +1,4 @@
-import React, { cloneElement } from "react"
+import React, { useEffect } from "react"
 import pokeStyles from "./PokemonInfo.module.css"
 import Button from "./Button"
 import Stat from "./Stat"
@@ -21,29 +21,40 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
         setCenterPeak(state => !state)
     }
 
-    // function handleKeyPress(event) {
-    //     console.log("current poke: " + activeIndex)
-
-    //     if (event.key === 'n' || event.keyCode === 39) {
-    //         nextPoke()
-    //     }
-    //     else if (event.key === 'p' || event.keyCode === 37) {
-    //         prevPoke()
-    //     }
-    //     else if (event.key === 'Escape') {
-    //         close()
-    //     }
-    //     else {
-    //         console.log("Not a valid control key")
-    //     }
-    // }
-
-    // React.useEffect(() => {
-    //     window.addEventListener("keyup", handleKeyPress)
-    //     return () => {
-    //         window.removeEventListener("keyup", handleKeyPress);
-    //     }
-    // }, [])
+    function handleKeyDown({keyCode}) {
+        // console.log('A key was pressed', event)
+        switch (keyCode) {
+            case 27:
+                close()
+                break;
+            case 37:
+                prevPoke()
+                break;
+            case 39:
+                nextPoke()
+                break;
+            case 67:
+                toggleCenterPeak()
+                break;
+            case 80:
+                prevPoke()
+                break;
+            case 78:
+                nextPoke()
+                break;
+            default:
+                break;
+        }
+    }
+    
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown)
+        // console.log("Event listener added")
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            // console.log("Event listener removed")
+        }
+    }, [])
 
     const pokeStats = {
         "hp": activePokemon.stats[0].base_stat,
@@ -59,7 +70,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
         <div className={pokeStyles.bg}>
             <section className={ centerPeak ? pokeStyles.mainCenter : pokeStyles.main}>
                 <section className={pokeStyles.actions}>
-                    <Button onClick={toggleCenterPeak} className={pokeStyles.desktopDisplayOnly} toolTip="Change peak">
+                    <Button onClick={toggleCenterPeak} className={pokeStyles.desktopDisplayOnly} toolTip="Change peak [C]">
                         {
                             centerPeak 
                             ?   <MdKeyboardTab className={pokeStyles.icon}/>
@@ -67,11 +78,11 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                         }
                     </Button>
                     <section className={pokeStyles.navActions}>    
-                        <Button onClick={prevPoke} toolTip="Previous Pokemon">
+                        <Button onClick={prevPoke} toolTip="Previous Pokemon [P]">
                             <MdArrowBack className={pokeStyles.icon}/>
                         </Button>
                         <p>{activeIndex+1} / 6</p>
-                        <Button onClick={nextPoke} toolTip="Next Pokemon">
+                        <Button onClick={nextPoke} toolTip="Next Pokemon [N]">
                             <MdArrowForward className={pokeStyles.icon}/>
                         </Button>
                     </section>
