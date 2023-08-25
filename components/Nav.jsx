@@ -1,11 +1,12 @@
 import React, { useEffect } from "react"
 import Button from "./Button"
 import DarkModeButton from "./DarkModeButton"
+import ThemeSelector from "./ThemeSelector"
 import navStyles from "./Nav.module.css"
 import pokeball from "../img/pokeball.png"
-import { MdInfoOutline, MdShuffle, MdTune } from "react-icons/md";
+import { MdInfoOutline, MdShuffle, MdTune, MdColorLens } from "react-icons/md";
 
-export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode, toggleDarkMode, ...props}) {
+export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode, toggleDarkMode, showTheme, toggleThemeSelector, changeTheme, ...props}) {
     function handleKeyDown({keyCode}) {
         // console.log('A key was pressed', event)
         switch (keyCode) {
@@ -25,6 +26,10 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode,
             case 82:
                 randomizeParty()
                 break;
+            // 't'
+            case 84:
+                toggleThemeSelector()
+                break;
             default:
                 break;
         }
@@ -38,9 +43,10 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode,
             // console.log("Event listener removed")
         }
     }, [])
-
+    
     return (
         <nav className={navStyles.navigation}>
+            {showTheme && <ThemeSelector changeTheme={changeTheme} darkMode={darkMode} toggleThemeSelector={toggleThemeSelector} />}
             
             <section className={navStyles.logo}>
                 <img className={navStyles.pokeball} src={pokeball}/>
@@ -48,6 +54,9 @@ export default function Nav({randomizeParty, toggleInfo, toggleCustom, darkMode,
             </section>
 
             <section className={navStyles.actions}>
+                <Button primary onClick={toggleThemeSelector} toolTip="Select theme [T]">
+                    <MdColorLens className={navStyles.icon}/>
+                </Button>
                 <Button primary onClick={toggleCustom} toolTip="Customize party [C]">
                     <MdTune className={navStyles.icon}/>
                 </Button>

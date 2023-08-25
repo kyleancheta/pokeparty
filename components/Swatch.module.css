@@ -1,0 +1,31 @@
+@import "../colors.css";
+
+.main {
+    cursor: pointer;
+    z-index: 29;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--theme); */
+}
+
+.dot, .selected {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--main-white);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+.main:hover .dot {
+    opacity: 0.5;
+}
+
+.selected {
+    box-shadow: 0 0 2px 1px var(--shadow-25);
+    opacity: 1;
+}

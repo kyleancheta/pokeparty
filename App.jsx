@@ -1,26 +1,31 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Nav from "./components/Nav"
 import Card from "./components/Card"
 import Footer from "./components/Footer"
 import InfoModal from "./components/InfoModal"
 import PokemonInfo from "./components/PokemonInfo"
 import CustomizeModal from "./components/CustomizeModal"
+import ThemeSelector from "./components/ThemeSelector"
 
 export default function App() {
     const initialPokemon = [778, 248, 637, 768, 330, 169]
 
-    const [darkMode, setDarkMode] = React.useState(
+    const [theme, setTheme] = useState(
+        () => JSON.parse(localStorage.getItem("pokemonparty-theme")) || "dragon"
+    )
+    const [darkMode, setDarkMode] = useState(
         () => JSON.parse(localStorage.getItem("pokemonparty-darkmode")) || false
     )
-    const [currentPokemonList, setCurrentPokemonList] = React.useState(
-        () => JSON.parse(localStorage.getItem("pokemonpartylist")) || initialPokemon
+    const [currentPokemonList, setCurrentPokemonList] = useState(
+        () => JSON.parse(localStorage.getItem("pokemonparty-list")) || initialPokemon
     )
-    const [pokemonParty, setPokemonParty] = React.useState([])
-    const [infoVisible, setInfoVisible] = React.useState(false)
-    const [customizeVisible, setCustomizeVisible] = React.useState(false)
-    const [displayParty, setDisplayParty] = React.useState(false)
+    const [pokemonParty, setPokemonParty] = useState([])
+    const [infoVisible, setInfoVisible] = useState(false)
+    const [customizeVisible, setCustomizeVisible] = useState(false)
+    const [showThemeSelector, setThemeSelector] = useState(false)
+    const [displayParty, setDisplayParty] = useState(false)
     
-    const [activeIndex, setActiveIndex] = React.useState(null)
+    const [activeIndex, setActiveIndex] = useState(null)
 
     function toggleInfo() {
         return setInfoVisible(prev => !prev)
@@ -29,6 +34,25 @@ export default function App() {
     function toggleCustom() {
         return setCustomizeVisible(prev => !prev)
     }
+
+    function toggleThemeSelector() {
+        return setThemeSelector(prev => !prev)
+    }
+
+    function changeTheme(newTheme) {
+        localStorage.setItem("pokemonparty-theme", JSON.stringify(newTheme))
+        setTheme(newTheme)
+    }
+
+    useEffect(() => {console.log(theme)}, [theme])
+
+    useEffect(() => {
+        if (darkMode) {
+            changeTheme("electric")
+        } else {
+            changeTheme("dragon")
+        }
+    }, [darkMode])
 
     function toggleDarkMode() {
         // localStorage.setItem("pokemonparty-darkmode", JSON.stringify(!darkMode))
@@ -103,6 +127,9 @@ export default function App() {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
             getPokemon(pokeUrl)
         }
+        localStorage.setItem("pokemonparty-theme", JSON.stringify(theme))
+        localStorage.setItem("pokemonparty-darkmode", JSON.stringify(darkMode))
+
     }, [])
 
     React.useEffect(() => {
@@ -114,25 +141,9 @@ export default function App() {
                 }
                 return updatedList
             })
-            localStorage.setItem("pokemonpartylist", JSON.stringify(currentPokemonList))
+            localStorage.setItem("pokemonparty-list", JSON.stringify(currentPokemonList))
         }
     }, [pokemonParty])
-
-    // React.useEffect(() => {
-    //     async function getPokemon(url) {
-    //         const res = await fetch(url)
-    //         const data = await res.json()
-    //         setPokemonParty(function(prev) {
-    //             const newArr = [...prev]
-    //             newArr.push(data)
-    //             return newArr
-    //         })
-    //     }
-    //     for (let i = 0; i < 6; i++) {
-    //         let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${initialPokemon[i]}/`
-    //         getPokemon(pokeUrl)
-    //     }
-    // }, [])
     
     const pokemonPartyCards = pokemonParty.map((poke, index) => {
         return <Card
@@ -148,14 +159,16 @@ export default function App() {
     })
 
     return (
-        <section className={`main ${darkMode ? 'darkmode' : null}`}>
+        <section className={`main ${darkMode ? 'darkmode' : ""} theme-${theme}`} >
             {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
             {customizeVisible && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
-            {displayParty && <PokemonInfo   pokemon={pokemonParty} 
-                                            activeIndex={activeIndex} 
-                                            close={closePokeInfo} 
-                                            prevPoke={prevPokemon} 
-                                            nextPoke={nextPokemon}/>
+            {displayParty && <PokemonInfo   
+                                pokemon={pokemonParty} 
+                                activeIndex={activeIndex} 
+                                close={closePokeInfo} 
+                                prevPoke={prevPokemon} 
+                                nextPoke={nextPokemon}
+                             />
             }
             <Nav
                 toggleInfo={toggleInfo} 
@@ -164,6 +177,9 @@ export default function App() {
                 randomizeParty={randomizeParty}
                 darkMode={darkMode}
                 toggleDarkMode={toggleDarkMode}
+                showTheme={showThemeSelector}
+                toggleThemeSelector={toggleThemeSelector}
+                changeTheme={changeTheme}
             />
             <section className="cards">
                 {!displayParty && pokemonPartyCards || window.innerWidth > 576 && pokemonPartyCards }

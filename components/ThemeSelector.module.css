@@ -1,0 +1,67 @@
+@import "../colors.css";
+
+.bg {
+    z-index: 10;
+    margin: calc(64px + 2px) 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 64px);
+    background-color: var(--shadow-dark);
+}
+
+.main {
+    margin: 8px auto 0;
+    position: relative;
+    /* <width of actions> + <padding right> - <width of half of main> */
+    right: 0;
+    width: calc(100% - 48px);
+    padding: 20px 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    background-color: var(--bg);
+    border-radius: var(--border-radi-lg);
+    box-shadow: 0 1px 4px 0 var(--shadow-25);
+}
+
+.label {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.picker {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(24px, 1fr));
+}
+
+@media screen and (min-width: 568px) {
+    .bg {
+        background-color: var(--shadow-bg);
+    }
+
+    .main {
+        margin: 8px 0 0;
+        position: fixed;
+        /* <width of actions> + <padding right> - <width of half of main> */
+        right: calc((242px - 16px) + 24px - 92px);
+        width: 160px;
+        padding: 20px 24px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+    
+        background-color: var(--bg);
+        border-radius: var(--border-radi-lg);
+        box-shadow: 0 1px 4px 0 var(--shadow-25);
+    }
+}

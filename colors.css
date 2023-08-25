@@ -24,6 +24,9 @@
     --shadow-90: var(--dark-shadow-90);
 
     --shadow-dark: var(--dark-shadow-96);
+
+    --shadow-main: var(--dark-shadow-05);
+    --shadow-bg: var(--light-shadow-05);
 }
 
 .darkmode {
@@ -48,6 +51,9 @@
     --shadow-50: var(--light-shadow-50);
     --shadow-75: var(--light-shadow-75);
     --shadow-90: var(--light-shadow-90);
+
+    --shadow-main: var(--light-shadow-05);
+    --shadow-bg: var(--dark-shadow-05);
 }
 
 ::selection {
@@ -60,117 +66,66 @@
     color: var(--fire);
 }
 
+/*  TYPE THEME COLOR   */
+
+.theme-ghost { --theme: var(--ghost); }
+.theme-fairy { --theme: var(--fairy); }
+.theme-rock { --theme: var(--rock); }
+.theme-dark { --theme: var(--dark); }
+.theme-fire { --theme: var(--fire); }
+.theme-bug { --theme: var(--bug); }
+.theme-water { --theme: var(--water); }
+.theme-ground { --theme: var(--ground); }
+.theme-dragon { --theme: var(--dragon); }
+.theme-poison { --theme: var(--poison); }
+.theme-flying { --theme: var(--flying); }
+.theme-psychic { --theme: var(--psychic); }
+.theme-normal { --theme: var(--normal); }
+.theme-fighting { --theme: var(--fighting); }
+.theme-steel { --theme: var(--steel); }
+.theme-electric { --theme: var(--electric); }
+.theme-grass { --theme: var(--grass); }
+.theme-ice { --theme: var(--ice); }
+
 
 /*  TYPE MAIN COLOR   */
 
-.ghost {
-    color: var(--ghost);
-}
-.fairy {
-    color: var(--fairy);
-}
-.rock {
-    color: var(--rock);
-}
-.dark {
-    color: var(--dark);
-}
-.fire {
-    color: var(--fire);
-}
-.bug {
-    color: var(--bug);
-}
-.water {
-    color: var(--water);
-}
-.ground {
-    color: var(--ground);
-}
-.dragon {
-    color: var(--dragon);
-}
-.poison {
-    color: var(--poison);
-}
-.flying {
-    color: var(--flying);
-}
-.psychic {
-    color: var(--psychic);
-}
-.normal {
-    color: var(--normal);
-}
-.fighting {
-    color: var(--fighting);
-}
-.steel {
-    color: var(--steel);
-}
-.electric {
-    color: var(--electric);
-}
-.grass {
-    color: var(--grass);
-}
-.ice {
-    color: var(--ice);
-}
+.ghost { color: var(--ghost); }
+.fairy { color: var(--fairy); }
+.rock { color: var(--rock); }
+.dark { color: var(--dark); }
+.fire { color: var(--fire); }
+.bug { color: var(--bug); }
+.water { color: var(--water); }
+.ground { color: var(--ground); }
+.dragon { color: var(--dragon); }
+.poison { color: var(--poison); }
+.flying { color: var(--flying); }
+.psychic { color: var(--psychic); }
+.normal { color: var(--normal); }
+.fighting { color: var(--fighting); }
+.steel { color: var(--steel); }
+.electric { color: var(--electric); }
+.grass { color: var(--grass); }
+.ice { color: var(--ice); }
 
 /*  TYPE BACKGROUND COLOR   */
 
-.ghost-bg {
-    background-color: var(--ghost);
-}
-.fairy-bg {
-    background-color: var(--fairy);
-}
-.rock-bg {
-    background-color: var(--rock);
-}
-.dark-bg {
-    background-color: var(--dark);
-}
-.fire-bg {
-    background-color: var(--fire);
-}
-.bug-bg {
-    background-color: var(--bug);
-}
-.water-bg {
-    background-color: var(--water);
-}
-.ground-bg {
-    background-color: var(--ground);
-}
-.dragon-bg {
-    background-color: var(--dragon);
-}
-.poison-bg {
-    background-color: var(--poison);
-}
-.flying-bg {
-    background-color: var(--flying);
-}
-.psychic-bg {
-    background-color: var(--psychic);
-}
-.normal-bg {
-    background-color: var(--normal);
-}
-.fighting-bg {
-    background-color: var(--fighting);
-}
-.steel-bg {
-    background-color: var(--steel);
-}
-.electric-bg {
-    background-color: var(--electric);
-}
-.grass-bg {
-    background-color: var(--grass);
-}
-.ice-bg {
-    background-color: var(--ice);
-}
+.ghost-bg { background-color: var(--ghost); }
+.fairy-bg { background-color: var(--fairy); }
+.rock-bg { background-color: var(--rock); }
+.dark-bg { background-color: var(--dark); }
+.fire-bg { background-color: var(--fire); }
+.bug-bg { background-color: var(--bug); }
+.water-bg { background-color: var(--water); }
+.ground-bg { background-color: var(--ground); }
+.dragon-bg { background-color: var(--dragon); }
+.poison-bg { background-color: var(--poison); }
+.flying-bg { background-color: var(--flying); }
+.psychic-bg { background-color: var(--psychic); }
+.normal-bg { background-color: var(--normal); }
+.fighting-bg { background-color: var(--fighting); }
+.steel-bg { background-color: var(--steel); }
+.electric-bg { background-color: var(--electric); }
+.grass-bg { background-color: var(--grass); }
+.ice-bg { background-color: var(--ice); }
