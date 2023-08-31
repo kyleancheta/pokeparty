@@ -129,3 +129,25 @@
 .electric-bg { background-color: var(--electric); }
 .grass-bg { background-color: var(--grass); }
 .ice-bg { background-color: var(--ice); }
+
+/* color-mix(in srgb, var(--main) 20%, var(--bg)) */
+.darkmode {
+    & .ghost-bg { border: 1px solid color-mix(in srgb, var(--ghost), var(--main-white) 20%); }
+    & .fairy-bg { border: 1px solid color-mix(in srgb, var(--fairy), var(--main-white) 20%); }
+    & .rock-bg { border: 1px solid color-mix(in srgb, var(--rock), var(--main-white) 20%); }
+    & .dark-bg { border: 1px solid color-mix(in srgb, var(--dark), var(--main-white) 20%); }
+    & .fire-bg { border: 1px solid color-mix(in srgb, var(--fire), var(--main-white) 20%); }
+    & .bug-bg { border: 1px solid color-mix(in srgb, var(--bug), var(--main-white) 20%); }
+    & .water-bg { border: 1px solid color-mix(in srgb, var(--water), var(--main-white) 20%); }
+    & .ground-bg { border: 1px solid color-mix(in srgb, var(--ground), var(--main-white) 20%); }
+    & .dragon-bg { border: 1px solid color-mix(in srgb, var(--dragon), var(--main-white) 20%); }
+    & .poison-bg { border: 1px solid color-mix(in srgb, var(--poison), var(--main-white) 20%); }
+    & .flying-bg { border: 1px solid color-mix(in srgb, var(--flying), var(--main-white) 20%); }
+    & .psychic-bg { border: 1px solid color-mix(in srgb, var(--psychic), var(--main-white) 20%); }
+    & .normal-bg { border: 1px solid color-mix(in srgb, var(--normal), var(--main-white) 20%); }
+    & .fighting-bg { border: 1px solid color-mix(in srgb, var(--fighting), var(--main-white) 20%); }
+    & .steel-bg { border: 1px solid color-mix(in srgb, var(--steel), var(--main-white) 20%); }
+    & .electric-bg { border: 1px solid color-mix(in srgb, var(--electric), var(--main-white) 20%); }
+    & .grass-bg { border: 1px solid color-mix(in srgb, var(--grass), var(--main-white) 20%); }
+    & .ice-bg { border: 1px solid color-mix(in srgb, var(--ice), var(--main-white) 20%); }
+}
