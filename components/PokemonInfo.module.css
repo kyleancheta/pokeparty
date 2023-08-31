@@ -227,6 +227,10 @@ hr {
         border-radius: var(--border-radi-xl) 0 0 var(--border-radi-xl);
         gap: 20px;
     }
+
+    .image > img {
+        max-width: 224px;
+    }
     
     .info {
         gap: 32px;
@@ -297,7 +301,12 @@ hr {
     }
 
     .image {
-        margin-top: 40px;
+        margin-top: 56px;
+    }
+
+    .image > img {
+        width: 90%;
+        max-width: 264px;
     }
 
     .mainCenter > .image {

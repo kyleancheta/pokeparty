@@ -99,6 +99,9 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                         <h1>{activePokemon.species.name}</h1>
                         <h4>#{activePokemon.id}</h4>
                     </section>
+                    {/* <section>
+                        <span>9th Gen</span>
+                    </section> */}
                     <section className={pokeStyles.types}>
                         <h4>Type{typeTwo ? "s" : ""}</h4>
                         <section className={pokeStyles.group}>

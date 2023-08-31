@@ -44,6 +44,10 @@
     height: 120px;
 }
 
+.artwork {
+    animation: silhouette-reveal ease-in-out 2000ms 1;
+}
+
 .bg-pokeball {
     opacity: 25%;
 }
@@ -89,16 +93,86 @@ h2.name {
     text-transform: uppercase;
 }
 
+.fadeIn {
+    animation: fade-in-out 500ms 1;
+}
+
+.sliver {
+    animation: sliver-sm ease-in-out 1000ms 1;
+}
+
+@keyframes fade-in-out {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sliver-sm {
+    0% {
+        opacity: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        opacity: 0.40;
+        margin-top: -10px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes sliver-md {
+    0% {
+        opacity: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        opacity: 0.40;
+        margin-top: -20px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes sliver-lg {
+    0% {
+        opacity: 0;
+        margin-top: 0;
+    }
+
+    50% {
+        opacity: 0.40;
+        margin-top: -30px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes silhouette-reveal {
+    from {
+        filter: contrast(0%) brightness(50%);
+    }
+
+    to {
+        filter: none;
+    }
+}
+
 @media screen and (min-width: 768px) {
-    /* section.cards {
-        max-width: 100%;
-        margin: 64px 0;
-        padding: 0 40px;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        
-        gap: 16px 20px;
-    } */
     
     .card {
         max-height: 220px;
@@ -126,6 +200,10 @@ h2.name {
     h2.name {
         font-size: 24px;
         text-transform: capitalize;
+    }
+
+    .sliver {
+        animation: sliver-md ease-in-out 1000ms 1;
     }
 
 }
@@ -156,6 +234,10 @@ h2.name {
     .card:hover .artwork {
         width: 216px;
         height: 216px;
+    }
+
+    .sliver {
+        animation: sliver-lg ease-in-out 1000ms 1;
     }
 
 }

@@ -5,7 +5,6 @@ import Footer from "./components/Footer"
 import InfoModal from "./components/InfoModal"
 import PokemonInfo from "./components/PokemonInfo"
 import CustomizeModal from "./components/CustomizeModal"
-import ThemeSelector from "./components/ThemeSelector"
 
 export default function App() {
     const initialPokemon = [778, 248, 637, 768, 330, 169]
@@ -127,8 +126,9 @@ export default function App() {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
             getPokemon(pokeUrl)
         }
-        localStorage.setItem("pokemonparty-theme", JSON.stringify(theme))
-        localStorage.setItem("pokemonparty-darkmode", JSON.stringify(darkMode))
+        // localStorage.setItem("pokemonparty-darkmode", JSON.stringify(darkMode))
+        // localStorage.setItem("pokemonparty-theme", JSON.stringify(theme))
+        changeTheme(theme)
 
     }, [])
 
