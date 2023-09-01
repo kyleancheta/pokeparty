@@ -167,6 +167,10 @@ h2.name {
         filter: contrast(0%) brightness(50%);
     }
 
+    50% {
+        filter: contrast(0%) brightness(50%);
+    }
+
     to {
         filter: none;
     }
