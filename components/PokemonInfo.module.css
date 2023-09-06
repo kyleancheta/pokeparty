@@ -199,7 +199,8 @@ hr {
 .stats {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 24px 40px;
+    /* gap: 24px 40px; */
+    gap: 16px;
     justify-content: center;
     align-items: center;
 }
@@ -236,9 +237,9 @@ hr {
         gap: 32px;
     }
 
-    .stats {
+    /* .stats {
         gap: 24px 32px;
-    }
+    } */
 
     .name > h1 {
         font-size: 2.25rem;
@@ -273,7 +274,7 @@ hr {
         top: 80px;
         display: grid;
         grid-template: 32px auto / 1fr 1fr;
-        gap: 16px;
+        gap: 32px;
         padding: 32px;
         border-radius: var(--border-radi-xl);
         box-shadow: 0 2px 4px var(--shadow-50);

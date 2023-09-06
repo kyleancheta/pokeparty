@@ -48,6 +48,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
     }
     
     useEffect(() => {
+        window.removeEventListener('keydown', handleKeyDown)
         window.addEventListener('keydown', handleKeyDown)
         // console.log("Event listener added")
         return () => {
@@ -117,18 +118,18 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                     {/* <hr className={pokeStyles.line}/> */}
                 </section>
                 <section className={`${pokeStyles.section} ${pokeStyles.contentB}`}>
-                    <section className={pokeStyles.info}>
+                    {/* <section className={pokeStyles.info}>
                         <Stat label="Height" stat={`${pokeHeight}m`}/>
                         <Stat label="Weight" stat={`${pokeWeight}kg`}/>
                     </section>
-                    <hr className={pokeStyles.line}/>
+                    <hr className={pokeStyles.line}/> */}
                     <section className={pokeStyles.stats}>
-                        <Stat label="HP" stat={pokeStats.hp}/>
-                        <Stat label="Attack" stat={pokeStats.attack}/>
-                        <Stat label="Defense" stat={pokeStats.defense}/>
-                        <Stat label="Special Attack" stat={pokeStats.spAttack}/>
-                        <Stat label="Special Defense" stat={pokeStats.spDefense}/>
-                        <Stat label="Speed" stat={pokeStats.speed}/>
+                        <Stat mainStat label="HP" stat={pokeStats.hp}/>
+                        <Stat mainStat label="Attack" stat={pokeStats.attack}/>
+                        <Stat mainStat label="Defense" stat={pokeStats.defense}/>
+                        <Stat mainStat label="Special Attack" stat={pokeStats.spAttack}/>
+                        <Stat mainStat label="Special Defense" stat={pokeStats.spDefense}/>
+                        <Stat mainStat label="Speed" stat={pokeStats.speed}/>
                     </section>
                     <section className={pokeStyles.bst}>
                         <Stat center label="Base Stat Total" stat={bst}/>

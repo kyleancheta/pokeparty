@@ -81,17 +81,17 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
     }
 
     function handleKeyDown(event) {
-        console.log('A key was pressed', event)
+        // console.log('A key was pressed', event)
         if (event.keyCode === 27) {
             closeModal()
         }
     }
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
-        console.log("Event listener added")
+        // console.log("Event listener added")
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
-            console.log("Event listener removed")
+            // console.log("Event listener removed")
         }
     }, [])
 

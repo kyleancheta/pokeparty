@@ -171,7 +171,8 @@ export default function App() {
                              />
             }
             <Nav
-                toggleInfo={toggleInfo} 
+                toggleInfo={toggleInfo}
+                customizeVisible={customizeVisible} 
                 toggleCustom={toggleCustom} 
                 randomParty={randomParty} 
                 randomizeParty={randomizeParty}
