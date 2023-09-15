@@ -1,0 +1,33 @@
+.main {
+    position: absolute;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 456px;
+    max-height: 200px;
+    border-radius: var(--border-radi-md);
+    background: var(--fairy);
+}
+
+ul {
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+li {
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: var(--electric);
+}
+
+@media screen and (min-width: 768px) {
+    .main {
+        width: 50%;
+        max-width: 568px;
+    }
+}

@@ -55,7 +55,7 @@ export default function ThemeSelector({ toggleThemeSelector, changeTheme, darkMo
     }
 
     return (
-        <div className={style.bg}>
+        <div className={style.bg} onClick={toggleThemeSelector}>
             <section className={style.main}>
                 <h4 className={style.label}>Select theme</h4>
                 <div className={style.picker}>

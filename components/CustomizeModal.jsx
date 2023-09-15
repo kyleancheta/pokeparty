@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import Button from "./Button"
 import Message from "./Message"
+import InputDropdown from "./InputDropdown"
 import styles from "./CustomizeModal.module.css"
 import pokeball from "../img/pokeball.png"
 import greyPokeball from "../img/bg-pokeball.png"
@@ -30,15 +31,15 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
         setChangesMade(true)
     }
     
-    function handleChange(event, index) {
-        setFormData(prevForm => {
-            const newForm = [...prevForm]
-            newForm[index].name = event.target.value
-            newForm[index].sprite = greyPokeball
-            return newForm
-        })
-        setChangesMade(true)
-    }
+    // function handleChange(event, index) {
+    //     setFormData(prevForm => {
+    //         const newForm = [...prevForm]
+    //         newForm[index].name = event.target.value
+    //         newForm[index].sprite = greyPokeball
+    //         return newForm
+    //     })
+    //     setChangesMade(true)
+    // }
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -127,23 +128,34 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                             >
                                 <span>
                                     <MdDragHandle className={styles.icon}/>
-                                </span>      
-                                <input
+                                </span>
+                                <InputDropdown
+                                    index={index}
+                                    type="text"
+                                    placeholder={`Pokemon ${index + 1}`}
+                                    // onChange={(e) => handleChange(e, index)}
+                                    name={`pokemon_${index}`}
+                                    // value={formData[index].name}
+                                    formData={formData}
+                                    setFormData={setFormData}
+                                    setChangesMade={setChangesMade}
+                                />     
+                                {/* <input
                                     index={index}
                                     type="text"
                                     placeholder={`Pokemon ${index + 1}`}
                                     onChange={(e) => handleChange(e, index)}
                                     name={`pokemon_${index}`}
                                     value={formData[index].name}
-                                />
+                                /> */}
                                 <img src={formData[index].sprite} className={styles.sprite}/>
                             </div>
                         )
                         )
                     }
-                    <Message info style={{maxWidth: "424"}}>
+                    {/* <Message info style={{maxWidth: "424"}}>
                         Make sure you spell the names correctly!
-                    </Message>
+                    </Message> */}
                     <button className={styles.btn}>
                         <img src={pokeball} className={styles.icon}/>
                         Submit

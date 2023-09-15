@@ -43,7 +43,7 @@ export default function App() {
         setTheme(newTheme)
     }
 
-    useEffect(() => {console.log(theme)}, [theme])
+    // useEffect(() => {console.log(theme)}, [theme])
 
     useEffect(() => {
         if (darkMode) {

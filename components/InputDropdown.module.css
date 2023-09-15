@@ -1,0 +1,77 @@
+input {
+    width: 100%;
+    max-width: 456px;
+    padding: 6px 8px;
+    /* height: 24px; */
+    font-size: 1rem;
+    text-indent: 0;
+    border: 1px solid var(--border-primary);
+    color: var(--copy);
+    /* background-color: var(--bg); */
+    background-color: color-mix(in srgb, var(--bg) 96%, var(--main));
+    border-radius: var(--border-radi-md);
+    flex-grow: 1;
+    transition: all 200ms ease-out;
+}
+
+input:hover {
+    text-indent: 3px;
+    border: 1px solid var(--theme);
+    box-shadow: 0 0 2px var(--theme);
+}
+
+input:focus {
+    text-indent: 0;
+    outline: 2px solid var(--theme);
+}
+
+.dropdown {
+    z-index: 10;
+    display: block;
+    position: fixed;
+    top: 5%;
+    left: 30%;
+    right: 0;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 456px;
+    max-height: 200px;
+    border-radius: var(--border-radi-md);
+    background: var(--fairy);
+
+    /* Hiding scrollbar for IE, Edge and Firefox */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Hiding scrollbar for Chrome */
+.dropdown::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+ul {
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+li {
+    pointer-events: auto;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: var(--electric);
+}
+
+@media screen and (min-width: 768px) {
+    .main {
+        width: 50%;
+        max-width: 568px;
+    }
+}

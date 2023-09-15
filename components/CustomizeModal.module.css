@@ -152,16 +152,16 @@ p {
     background-color: color-mix(in srgb, var(--theme) 15%, var(--bg));
 }
 
-.inputRow > input {
+/* .inputRow > input {
     width: 100%;
     max-width: 456px;
     padding: 6px 8px;
-    /* height: 24px; */
+    height: 24px;
     font-size: 1rem;
     text-indent: 0;
     border: 1px solid var(--border-primary);
     color: var(--copy);
-    /* background-color: var(--bg); */
+    background-color: var(--bg);
     background-color: color-mix(in srgb, var(--bg) 96%, var(--main));
     border-radius: var(--border-radi-md);
     flex-grow: 1;
@@ -177,7 +177,7 @@ p {
 .inputRow > input:focus {
     text-indent: 0;
     outline: 2px solid var(--theme);
-}
+} */
 
 .inputRow > .sprite {
     width: 40px;
