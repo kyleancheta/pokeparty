@@ -7,7 +7,64 @@ import PokemonInfo from "./components/PokemonInfo"
 import CustomizeModal from "./components/CustomizeModal"
 
 export default function App() {
-    const initialPokemon = [778, 248, 637, 768, 330, 169]
+    const initialPokemon = [778, 248, 637, 768, 330, 9]
+    const emptyPokemonSet = [
+        {
+            name: "",
+            displayName: "",
+            order: 1,
+            id: 778,
+            sprite: "",
+            types: [],
+            data: null
+        },
+        {
+            name: "",
+            displayName: "",
+            order: 2,
+            id: 248,
+            sprite: "",
+            types: [],
+            data: null
+        },
+        {
+            name: "",
+            displayName: "",
+            order: 3,
+            id: 637,
+            sprite: "",
+            types: [],
+            data: null
+        },
+        {
+            name: "",
+            displayName: "",
+            order: 4,
+            id: 768,
+            sprite: "",
+            types: [],
+            data: null
+        },
+        {
+            name: "",
+            displayName: "",
+            order: 5,
+            id: 330,
+            sprite: "",
+            types: [],
+            data: null
+        },
+        {
+            name: "",
+            displayName: "",
+            order: 6,
+            id: 169,
+            sprite: "",
+            types: [],
+            data: null
+        }
+    ]
+    const [pokemonParty, setPokemonParty] = useState(emptyPokemonSet)
 
     const [theme, setTheme] = useState(
         () => JSON.parse(localStorage.getItem("pokemonparty-theme")) || "dragon"
@@ -18,7 +75,6 @@ export default function App() {
     const [currentPokemonList, setCurrentPokemonList] = useState(
         () => JSON.parse(localStorage.getItem("pokemonparty-list")) || initialPokemon
     )
-    const [pokemonParty, setPokemonParty] = useState([])
     const [infoVisible, setInfoVisible] = useState(false)
     const [customizeVisible, setCustomizeVisible] = useState(false)
     const [showThemeSelector, setThemeSelector] = useState(false)
@@ -42,8 +98,6 @@ export default function App() {
         localStorage.setItem("pokemonparty-theme", JSON.stringify(newTheme))
         setTheme(newTheme)
     }
-
-    useEffect(() => {console.log(theme)}, [theme])
 
     useEffect(() => {
         if (darkMode) {
@@ -91,7 +145,12 @@ export default function App() {
                 const newArray = [...prev]
                 newArray[i] = data
                 return newArray
-            })        
+            })
+            // setPokemonParty(prev => {
+            //     const newArray = [...prev]
+            //     newArray[i] = data
+            //     return newArray
+            // })        
         }
     }
 
@@ -107,48 +166,68 @@ export default function App() {
         }
     }
 
+    // Initial getting of the Pokemon party
     React.useEffect(() => {
-        async function getPokemon(url) {
+        async function getPokemon(url, index) {
             const res = await fetch(url)
-            const data = await res.json()
-            setPokemonParty(function(prev) {
-                console.log(prev)
-                const newArr = [...prev]
-                if (newArr.length < 6) {
-                    newArr.push(data)
-                    return newArr
+            const data2 = await res.json()
+            // console.log(data2)
+            setPokemonParty(previousParty => {
+                const updatedParty = [...previousParty]
+                const updatedPokemon = {...previousParty[index]} 
+                updatedPokemon.data = data2
+                updatedPokemon.name = data2.species.name
+                updatedPokemon.displayName = data2.species.name
+                updatedPokemon.id = data2.id
+                // updatedPokemon.types = data2.types
+                if (data2.types.length === 2) {
+                    updatedPokemon.types = [data2.types[0].type.name, data2.types[1].type.name]
                 } else {
-                    return prev
+                    updatedPokemon.types = [data2.types[0].type.name]
                 }
+                updatedPokemon.sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data2.id}.png`
+                // console.log(updatedPokemon)
+                updatedParty[index] = updatedPokemon
+                console.log(updatedParty)
+                return updatedParty
             })
+            // setPokemonParty(function(prev) {
+            //     console.log(prev)
+            //     const newArr = [...prev]
+            //     if (newArr.length < 6) {
+            //         newArr.push(data)
+            //         return newArr
+            //     } else {
+            //         return prev
+            //     }
+            // })
         }
+
         for (let i = 0; i < 6; i++) {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
-            getPokemon(pokeUrl)
+            getPokemon(pokeUrl, i)
         }
-        // localStorage.setItem("pokemonparty-darkmode", JSON.stringify(darkMode))
-        // localStorage.setItem("pokemonparty-theme", JSON.stringify(theme))
         changeTheme(theme)
-
+        
+        console.log(pokemonParty)
     }, [])
 
-    React.useEffect(() => {
-        if (pokemonParty.length == 6) {
-            setCurrentPokemonList(prev => {
-                const updatedList = [...prev]
-                for (let i = 0; i < 6; i++) {
-                    updatedList[i] = pokemonParty[i].id
-                }
-                return updatedList
-            })
-            localStorage.setItem("pokemonparty-list", JSON.stringify(currentPokemonList))
-        }
+    React.useEffect(() => {     
+        setCurrentPokemonList(prev => {
+            const updatedList = [...prev]
+            for (let i = 0; i < 6; i++) {
+                updatedList[i] = pokemonParty[i].id
+            }
+            return updatedList
+        })
+        localStorage.setItem("pokemonparty-list", JSON.stringify(currentPokemonList))     
     }, [pokemonParty])
     
     const pokemonPartyCards = pokemonParty.map((poke, index) => {
+        // console.log(poke)
         return <Card
                     key={index}
-                    name={poke.species.name}
+                    name={poke.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
                     types={poke.types}
                     onClick={() => {
