@@ -45,7 +45,7 @@
 }
 
 .artwork {
-    animation: silhouette-reveal ease-in-out 2000ms 1;
+    animation: silhouette-reveal ease-in-out 1200ms 1;
 }
 
 .bg-pokeball {
