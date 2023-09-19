@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useRef } from "react"
-import Button from "./Button"
-import Message from "./Message"
-import InputDropdown from "./InputDropdown"
 import styles from "./CustomizeModal.module.css"
-import pokeball from "../img/pokeball.png"
-import greyPokeball from "../img/bg-pokeball.png"
 import { MdClose, MdDragHandle } from "react-icons/md";
 
+import Button from "./Button"
+import Message from "./Message"
+import InputDropdown2 from "./InputDropdown2"
+import InputDropdown from "./InputDropdown"
 
-function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
+import { pokemonList } from "../data/pokemon"
+import pokeball from "../img/pokeball.png"
+import greyPokeball from "../img/bg-pokeball.png"
+
+function CustomizeModal({ toggleCustom, pokemon, customizeParty }) {
     const [changesMade, setChangesMade] = useState(false)
     const [formData, setFormData] = useState([
         { name: pokemon[0].species.name, sprite: pokemon[0].sprites.front_default },
@@ -31,6 +34,18 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
         setChangesMade(true)
     }
     
+    // function handleChange(value, index) {
+    //     setFormData(prevForm => {
+    //         const newForm = [...prevForm]
+    //         console.log("index: " + index)
+    //         console.log(newForm[index])
+    //         newForm[index].name = value
+    //         newForm[index].sprite = greyPokeball
+    //         return newForm
+    //     })
+    //     setChangesMade(true)
+    // }
+
     // function handleChange(event, index) {
     //     setFormData(prevForm => {
     //         const newForm = [...prevForm]
@@ -43,11 +58,13 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
 
     function handleSubmit(event) {
         event.preventDefault()
+        console.log(formData)
         const newParty = []
         for (let poke in formData) {
             newParty.push(formData[poke].name.toLowerCase())
         }
-        // console.log(newParty)
+        console.log(newParty)
+        
         toggleCustom()
         customizeParty(newParty)
     }
@@ -62,12 +79,12 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
     
     const dragStart = (e, position) => {
         dragItem.current = position
-        console.log(e.target.innerHTML)
+        // console.log(e.target.innerHTML)
     }
 
     const dragEnter = (e, position) => {
         dragOverItem.current = position
-        console.log(e.target.innerHTML)
+        // console.log(e.target.innerHTML)
     }
 
     const drop = (e) => {
@@ -129,7 +146,20 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                                 <span>
                                     <MdDragHandle className={styles.icon}/>
                                 </span>
-                                <InputDropdown
+
+                                <InputDropdown2
+                                    name={`${formData[index].name}`}
+                                    id={index}
+                                    selectedVal={formData[index].name}
+                                    options={pokemonList}
+                                    // handleChange={handleChange}
+                                    // placeholder={`Pokemon ${index + 1}`}
+
+                                    formData={formData}
+                                    setFormData={setFormData}
+                                />  
+
+                                {/* <InputDropdown
                                     index={index}
                                     type="text"
                                     placeholder={`Pokemon ${index + 1}`}
@@ -139,7 +169,8 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                                     formData={formData}
                                     setFormData={setFormData}
                                     setChangesMade={setChangesMade}
-                                />     
+                                />      */}
+
                                 {/* <input
                                     index={index}
                                     type="text"

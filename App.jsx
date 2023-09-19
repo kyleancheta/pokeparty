@@ -112,7 +112,7 @@ export default function App() {
             const res = await fetch(url)
             const data = await res.json()
             setPokemonParty(function(prev) {
-                console.log(prev)
+                // console.log(prev)
                 const newArr = [...prev]
                 if (newArr.length < 6) {
                     newArr.push(data)
