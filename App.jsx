@@ -96,31 +96,41 @@ export default function App() {
     }
 
     async function customizeParty(newParty) {
+
         for (let i = 0; i < newParty.length; i++) {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${newParty[i]}/`)
-            const data = await res.json()         
-            setPokemonParty(prev => {
-                const newArray = [...prev]
-                newArray[i] = data
-                return newArray
-            })        
+            try {
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${newParty[i]}/`)
+                const data = await res.json()         
+                setPokemonParty(prev => {
+                    const newArray = [...prev]
+                    newArray[i] = data
+                    return newArray
+                })        
+            } catch(error) {
+                console.log(newParty[i] + " wasn't found")
+            }
         }
+    
     }
 
     React.useEffect(() => {
         async function getPokemon(url) {
-            const res = await fetch(url)
-            const data = await res.json()
-            setPokemonParty(function(prev) {
-                console.log(prev)
-                const newArr = [...prev]
-                if (newArr.length < 6) {
-                    newArr.push(data)
-                    return newArr
-                } else {
-                    return prev
-                }
-            })
+            try {
+                const res = await fetch(url)
+                const data = await res.json()
+                setPokemonParty(function(prev) {
+                    console.log(prev)
+                    const newArr = [...prev]
+                    if (newArr.length < 6) {
+                        newArr.push(data)
+                        return newArr
+                    } else {
+                        return prev
+                    }
+                })
+            } catch(error) {
+                console.error("Error:", error)
+            }
         }
         for (let i = 0; i < 6; i++) {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
