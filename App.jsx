@@ -19,7 +19,7 @@ export default function App() {
         () => JSON.parse(localStorage.getItem("pokemonparty-list")) || initialPokemon
     )
     const [pokemonParty, setPokemonParty] = useState([])
-    const [infoVisible, setInfoVisible] = useState(false)
+    const [showInfoModal, setShowInfoModal] = useState(false)
     const [customizeVisible, setCustomizeVisible] = useState(false)
     const [showThemeSelector, setThemeSelector] = useState(false)
     const [displayParty, setDisplayParty] = useState(false)
@@ -27,7 +27,7 @@ export default function App() {
     const [activeIndex, setActiveIndex] = useState(null)
 
     function toggleInfo() {
-        return setInfoVisible(prev => !prev)
+        return setShowInfoModal(prev => !prev)
     }
 
     function toggleCustom() {
@@ -43,7 +43,7 @@ export default function App() {
         setTheme(newTheme)
     }
 
-    useEffect(() => {console.log(theme)}, [theme])
+    // useEffect(() => {console.log(theme)}, [theme])
 
     useEffect(() => {
         if (darkMode) {
@@ -85,13 +85,17 @@ export default function App() {
     async function randomizeParty() {
         const randy = randomParty()
         for (let i = 0; i < randy.length; i++) {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randy[i]}/`)
-            const data = await res.json()         
-            setPokemonParty(prev => {
-                const newArray = [...prev]
-                newArray[i] = data
-                return newArray
-            })        
+            try {
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randy[i]}/`)
+                const data = await res.json()         
+                setPokemonParty(prev => {
+                    const newArray = [...prev]
+                    newArray[i] = data
+                    return newArray
+                })        
+            } catch(error) {
+                console.log(randy[i] + " isn't a Pokemon, it seems.")
+            }
         }
     }
 
@@ -119,7 +123,6 @@ export default function App() {
                 const res = await fetch(url)
                 const data = await res.json()
                 setPokemonParty(function(prev) {
-                    console.log(prev)
                     const newArr = [...prev]
                     if (newArr.length < 6) {
                         newArr.push(data)
@@ -136,11 +139,20 @@ export default function App() {
             let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemonList[i]}/`
             getPokemon(pokeUrl)
         }
-        // localStorage.setItem("pokemonparty-darkmode", JSON.stringify(darkMode))
-        // localStorage.setItem("pokemonparty-theme", JSON.stringify(theme))
+        
         changeTheme(theme)
 
+        
     }, [])
+    
+    React.useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown)
+        // console.log("Event listener added")
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            // console.log("Event listener removed")
+        }
+    }, [customizeVisible])
 
     React.useEffect(() => {
         if (pokemonParty.length == 6) {
@@ -154,6 +166,50 @@ export default function App() {
             localStorage.setItem("pokemonparty-list", JSON.stringify(currentPokemonList))
         }
     }, [pokemonParty])
+
+    function handleKeyDown({keyCode}) {
+        // console.log('A key was pressed', event)
+        // console.log("keycode: " + keyCode + " customize visible: " + customizeVisible)
+        // const nope = false
+        if (!customizeVisible) {
+            console.log("nav event listener fired")
+            switch (keyCode) {
+                // 'c'
+                case 67:
+                    toggleCustom()
+                    break;
+                // 'd'
+                case 68:
+                    toggleDarkMode()
+                    break;
+                // 'i'
+                case 73:
+                    toggleInfo()
+                    break;
+                // 'r'
+                case 82:
+                    randomizeParty()
+                    break;
+                // 't'
+                case 84:
+                    toggleThemeSelector()
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    // React.useEffect(() => {
+    //     if ( toggleCustom || toggleInfo || toggleThemeSelector) {
+    //         window.removeEventListener('keydown', handleKeyDown)
+    //         console.log("Event listener removed")
+    //     } else {
+    //         window.addEventListener('keydown', handleKeyDown)
+    //         console.log("Event listener added")
+    //     }
+        
+    // }, [toggleCustom, toggleInfo, randomizeParty, toggleThemeSelector])
     
     const pokemonPartyCards = pokemonParty.map((poke, index) => {
         return <Card
@@ -170,7 +226,7 @@ export default function App() {
 
     return (
         <section className={`main ${darkMode ? 'darkmode' : ""} theme-${theme}`} >
-            {infoVisible && <InfoModal toggleInfo={toggleInfo}/>}
+            {showInfoModal && <InfoModal toggleInfo={toggleInfo}/>}
             {customizeVisible && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
             {displayParty && <PokemonInfo   
                                 pokemon={pokemonParty} 

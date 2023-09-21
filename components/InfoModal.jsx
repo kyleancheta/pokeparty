@@ -11,10 +11,8 @@ function InfoModal({ toggleInfo }) {
     }
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
-        console.log("Event listener added")
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
-            console.log("Event listener removed")
         }
     }, [])
 
