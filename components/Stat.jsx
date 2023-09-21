@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./Stat.module.css"
+import styled from 'styled-components';
 
 export default function Stat({ mainStat, label, stat, className }) {
 
@@ -24,18 +25,29 @@ export default function Stat({ mainStat, label, stat, className }) {
         }
     }
 
-    const barStyles = {
-        minWidth: `6%`,
-        width: `${stat/170*100}%`,
-        maxWidth: `96%`,
-        backgroundColor: colorizeStat(stat)
+    const statLength = stat/170*100
+
+    // const growEffect = `
+    //     @keyframes stat-bar-grow {
+    //         from    { width: 6%; }
+    //         to      { width: ${stat/170*100}% }
+    //     }
+    // `;
+
+    const componentStyles = {
+        barStyles: {
+            minWidth: `6%`,
+            width: `${statLength}%`,
+            maxWidth: `96%`,
+            backgroundColor: colorizeStat(stat)
+        }
     }
     
     if (mainStat) {
         return (
             <section className={styles.main2}>
                 <span>{label}</span>
-                <div className={styles.statbar} style={barStyles}>
+                <div className={styles.statbar} style={componentStyles.barStyles}>
                     <p>{stat}</p>
                 </div>
             </section>

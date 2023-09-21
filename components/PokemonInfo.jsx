@@ -68,8 +68,8 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
     const bst = activePokemon.stats[0].base_stat + activePokemon.stats[1].base_stat + activePokemon.stats[2].base_stat + activePokemon.stats[3].base_stat + activePokemon.stats[4].base_stat + activePokemon.stats[5].base_stat
 
     return (
-        <div className={pokeStyles.bg}>
-            <section className={ centerPeak ? pokeStyles.mainCenter : pokeStyles.main}>
+        <div className={`${pokeStyles.bg} ${pokeStyles.fadeInQuick}`}>
+            <section className={ centerPeak ? `${pokeStyles.mainCenter} ${pokeStyles.fadeIn}` : `${pokeStyles.main} ${pokeStyles.panelSlideIn}`}>
                 <section className={pokeStyles.actions}>
                     <Button onClick={toggleCenterPeak} className={pokeStyles.desktopDisplayOnly} toolTip="Change peak [C]">
                         {
@@ -92,7 +92,7 @@ function PokemonInfo({pokemon, activeIndex, close, prevPoke, nextPoke, ...props}
                     </Button>
                 </section>
                
-                <section className={`${pokeStyles.section} ${pokeStyles.contentA}`}>
+                <section key={activeIndex} className={`${pokeStyles.section} ${pokeStyles.contentA}`}>
                     <section className={pokeStyles.image}>
                         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${activePokemon.id}.png`} alt={activePokemon.name} />
                     </section>

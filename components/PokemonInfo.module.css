@@ -46,6 +46,7 @@ hr {
     /* margin-bottom: 64px; */
     background-color: var(--bg);
     box-shadow: -2px 0 4px var(--shadow-50);
+    transition: all 0.3s ease-in-out;
 }
 
 /*  Hiding the scrollbar but allowing it to scroll on Chrome, Safari and Opera*/
@@ -125,11 +126,14 @@ hr {
     justify-content: center;
     align-items: center;
     margin-top: 32px;
+
+    /* animation: grow-in 500ms ease-in-out; */
 }
 
 .image > img {
     width: 80%;
     max-width: 196px;
+    animation: grow-in 500ms ease-in-out;
 }
 
 .name {
@@ -212,6 +216,64 @@ hr {
     align-items: center;
 }
 
+.fadeIn {
+    animation: fade-in 750ms 1;
+}
+
+.fadeInQuick {
+    animation: fade-in 250ms 1;
+}
+
+.panelSlideIn {
+    animation: slide-in-bottom 500ms 1;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes grow-in {
+    from {
+        scale: 0.1;
+        opacity: 0;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-bottom {
+    from {
+        top: 100vh;
+        box-shadow: 2px 0 0px var(--shadow-05);
+    }
+
+    to {
+        top: 0;
+        box-shadow: -2px 0 4px var(--shadow-50);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        right: -360px;
+        box-shadow: 2px 0 0px var(--shadow-05);
+    }
+
+    to {
+        right: 0;
+        box-shadow: -2px 0 4px var(--shadow-50);
+    }
+}
+
 
 @media screen and (min-width: 576px) {
     .bg {
@@ -256,6 +318,10 @@ hr {
 
     .pill > p {
         font-size: 14px;
+    }
+
+    .panelSlideIn {
+        animation: slide-in-right 750ms 1;
     }
 
 }
