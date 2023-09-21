@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./Stat.module.css"
+import "../animations/bar-growth.css"
 
 export default function Stat({ mainStat, label, stat, className }) {
 
@@ -24,21 +25,17 @@ export default function Stat({ mainStat, label, stat, className }) {
         }
     }
 
-    const statLength = stat/170*100
-
-    // const growEffect = `
-    //     @keyframes stat-bar-grow {
-    //         from    { width: 6%; }
-    //         to      { width: ${stat/170*100}% }
-    //     }
-    // `;
+    const statLength = Math.floor(stat/170*100)
+    const animationName = `bar-grow-${statLength}` 
+    console.log(animationName)
 
     const componentStyles = {
-        barStyles: {
+        barStyle: {
             minWidth: `6%`,
             width: `${statLength}%`,
             maxWidth: `96%`,
-            backgroundColor: colorizeStat(stat)
+            backgroundColor: colorizeStat(stat),
+            animation: `${animationName} 500ms ease-in-out 1`
         }
     }
     
@@ -46,7 +43,7 @@ export default function Stat({ mainStat, label, stat, className }) {
         return (
             <section className={styles.main2}>
                 <span>{label}</span>
-                <div className={styles.statbar} style={componentStyles.barStyles}>
+                <div className={styles.statbar} style={componentStyles.barStyle}>
                     <p>{stat}</p>
                 </div>
             </section>

@@ -1,4 +1,5 @@
 @import "../global.css";
+@import "../animations/bar-growth.css";
 
 .main {
     width: 96px;
@@ -41,12 +42,14 @@
 
 .statbar {
     width: calc(100% - 16px);
+    /* width: 6%; */
     display: inline-flex;
     justify-content: start;
     padding: 5px 8px;
     color: var(--main-white);
     background-color: var(--theme);
     border-radius: var(--border-radi-sm);
+    /* animation: bar-grow 1500ms 1; */
 }
 
 .statbar > p {
@@ -54,7 +57,7 @@
     font-size: 1rem;
     font-weight: 700;
     line-height: 100%;
-    text-shadow: 0 0 1px 0 var(--shadow-25);
+    text-shadow: 0 0 1px 0 var(--shadow-dark);
 }
 
 @media screen and (min-width: 576px) {
