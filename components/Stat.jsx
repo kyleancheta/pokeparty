@@ -1,6 +1,5 @@
 import React from "react"
 import styles from "./Stat.module.css"
-import styled from 'styled-components';
 
 export default function Stat({ mainStat, label, stat, className }) {
 
