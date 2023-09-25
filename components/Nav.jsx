@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Button from "./Button"
 import DarkModeButton from "./DarkModeButton"
 import ThemeSelector from "./ThemeSelector"
@@ -6,7 +6,7 @@ import navStyles from "./Nav.module.css"
 import pokeball from "../img/pokeball.png"
 import { MdInfoOutline, MdShuffle, MdTune, MdColorLens } from "react-icons/md";
 
-export default function Nav({randomizeParty, toggleInfo, customizeVisible, toggleCustom, darkMode, toggleDarkMode, showTheme, toggleThemeSelector, changeTheme, ...props}) {
+export default function Nav({randomizeParty, toggleInfo, showCustomizeModal, toggleCustom, darkMode, toggleDarkMode, showTheme, toggleThemeSelector, changeTheme, ...props}) {
     
     return (
         <nav className={navStyles.navigation}>

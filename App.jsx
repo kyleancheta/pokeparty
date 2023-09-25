@@ -20,7 +20,7 @@ export default function App() {
     )
     const [pokemonParty, setPokemonParty] = useState([])
     const [showInfoModal, setShowInfoModal] = useState(false)
-    const [customizeVisible, setCustomizeVisible] = useState(false)
+    const [showCustomizeModal, setShowCustomizeModal] = useState(false)
     const [showThemeSelector, setThemeSelector] = useState(false)
     const [displayParty, setDisplayParty] = useState(false)
     
@@ -31,7 +31,7 @@ export default function App() {
     }
 
     function toggleCustom() {
-        return setCustomizeVisible(prev => !prev)
+        return setShowCustomizeModal(prev => !prev)
     }
 
     function toggleThemeSelector() {
@@ -152,7 +152,7 @@ export default function App() {
             window.removeEventListener('keydown', handleKeyDown)
             // console.log("Event listener removed")
         }
-    }, [customizeVisible])
+    }, [showCustomizeModal])
 
     React.useEffect(() => {
         if (pokemonParty.length == 6) {
@@ -169,9 +169,9 @@ export default function App() {
 
     function handleKeyDown({keyCode}) {
         // console.log('A key was pressed', event)
-        // console.log("keycode: " + keyCode + " customize visible: " + customizeVisible)
+        // console.log("keycode: " + keyCode + " customize visible: " + showCustomizeModal)
         // const nope = false
-        if (!customizeVisible) {
+        if (!showCustomizeModal) {
             console.log("nav event listener fired")
             switch (keyCode) {
                 // 'c'
@@ -199,17 +199,6 @@ export default function App() {
             }
         }
     }
-
-    // React.useEffect(() => {
-    //     if ( toggleCustom || toggleInfo || toggleThemeSelector) {
-    //         window.removeEventListener('keydown', handleKeyDown)
-    //         console.log("Event listener removed")
-    //     } else {
-    //         window.addEventListener('keydown', handleKeyDown)
-    //         console.log("Event listener added")
-    //     }
-        
-    // }, [toggleCustom, toggleInfo, randomizeParty, toggleThemeSelector])
     
     const pokemonPartyCards = pokemonParty.map((poke, index) => {
         return <Card
@@ -227,7 +216,7 @@ export default function App() {
     return (
         <section className={`main ${darkMode ? 'darkmode' : ""} theme-${theme}`} >
             {showInfoModal && <InfoModal toggleInfo={toggleInfo}/>}
-            {customizeVisible && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
+            {showCustomizeModal && <CustomizeModal toggleCustom={toggleCustom} pokemon={pokemonParty} customizeParty={customizeParty}/>}
             {displayParty && <PokemonInfo   
                                 pokemon={pokemonParty} 
                                 activeIndex={activeIndex} 
@@ -238,7 +227,7 @@ export default function App() {
             }
             <Nav
                 toggleInfo={toggleInfo}
-                customizeVisible={customizeVisible} 
+                showCustomizeModal={showCustomizeModal} 
                 toggleCustom={toggleCustom} 
                 randomParty={randomParty} 
                 randomizeParty={randomizeParty}
