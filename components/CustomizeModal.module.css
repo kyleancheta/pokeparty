@@ -152,6 +152,12 @@ p {
     background-color: color-mix(in srgb, var(--theme) 15%, var(--bg));
 }
 
+.inputRow:active {
+    cursor: grabbing;
+    transform: scale(1.02);
+    background-color: color-mix(in srgb, var(--theme) 25%, var(--bg));
+}
+
 .inputRow > input {
     width: 100%;
     max-width: 456px;
