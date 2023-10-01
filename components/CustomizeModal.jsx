@@ -4,7 +4,7 @@ import Message from "./Message"
 import styles from "./CustomizeModal.module.css"
 import pokeball from "../img/pokeball.png"
 import greyPokeball from "../img/bg-pokeball.png"
-import { MdClose, MdDragHandle } from "react-icons/md";
+import { MdClose, MdDragHandle, MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 
 function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
@@ -28,6 +28,30 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
             { name: "", sprite: greyPokeball },
         ])
         setChangesMade(true)
+    }
+
+    function moveOrderUp(event, index) {
+        event.preventDefault()
+        let nextIndex = index + 1 > 5 ? 5 : index + 1
+        let selectedElement = formData[index]
+        let newForm = [...formData]
+
+        newForm.splice(index, 1)
+        newForm.splice(nextIndex, 0, selectedElement)
+
+        setFormData(newForm)
+    }
+
+    function moveOrderDown(event, index) {
+        event.preventDefault()
+        let nextIndex = index - 1 < 0 ? 0 : index - 1
+        let selectedElement = formData[index]
+        let newForm = [...formData]
+
+        newForm.splice(index, 1)
+        newForm.splice(nextIndex, 0, selectedElement)
+
+        setFormData(newForm)
     }
     
     function handleChange(event, index) {
@@ -125,9 +149,17 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                                 onDragEnd={drop}
                                 draggable
                             >
-                                <span>
+                                <span className={styles.dragHandles}>
                                     <MdDragHandle className={styles.icon}/>
-                                </span>      
+                                </span>
+                                <section className={styles.listOrder}>
+                                    <Button primary onClick={(e) => moveOrderDown(e, index)}>
+                                        <MdKeyboardArrowUp className={styles.icon}/>
+                                    </Button> 
+                                    <Button primary onClick={(e) => moveOrderUp(e, index)}>
+                                        <MdKeyboardArrowDown className={styles.icon}/>
+                                    </Button>       
+                                </section>
                                 <input
                                     index={index}
                                     type="text"

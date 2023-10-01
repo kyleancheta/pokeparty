@@ -4,7 +4,9 @@ button {
 
     padding: 6px;
     color: var(--main);
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
+    background-color: inherit;
+
     border-radius: var(--border-radi-circ);
     border: none;
 
@@ -75,7 +77,7 @@ button:active {
 
 .primary {
     color: var(--theme);
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
     /* background-color: color-mix(in srgb, var(--bg) 50%), white; */
 }
 
@@ -94,7 +96,7 @@ button:active {
 
 .danger {
     color: var(--fire);
-    background-color: color-mix(in srgb, var(--bg) 50%), var(--bg);
+    /* background-color: color-mix(in srgb, var(--bg) 50%), var(--bg); */
 }
 
 .danger:hover {
@@ -113,15 +115,12 @@ button:active {
 @keyframes fade-in {
     from {
         opacity: 0;
-
     }
     50% {
         opacity: 0;
-
     }
     to {
         opacity: 1;
-
     }
 }
 

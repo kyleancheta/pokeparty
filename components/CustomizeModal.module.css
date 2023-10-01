@@ -124,7 +124,7 @@ p {
 }
 
 .inputRow {
-    cursor: grab;
+    cursor: default;
     width: 100%;
     display: inline-flex;
     align-items: center;
@@ -149,13 +149,22 @@ p {
 }
 
 .inputRow:hover {
-    background-color: color-mix(in srgb, var(--theme) 15%, var(--bg));
+    background-color: none;
 }
 
 .inputRow:active {
-    cursor: grabbing;
-    transform: scale(1.02);
-    background-color: color-mix(in srgb, var(--theme) 25%, var(--bg));
+    cursor: default;
+    transform: none;
+    background-color: none;
+}
+
+.inputRow > .dragHandles {
+    display: none;
+}
+
+.inputRow > .listOrder {
+    display: inline-flex;
+    gap: 2px;
 }
 
 .inputRow > input {
@@ -213,5 +222,27 @@ p {
 
     .heading > h1 {
         font-size: 1.8rem;
+    }
+
+    .inputRow {
+        cursor: grab;
+    }
+
+    .inputRow:hover {
+        background-color: color-mix(in srgb, var(--theme) 15%, var(--bg));
+    }
+    
+    .inputRow:active {
+        cursor: grabbing;
+        transform: scale(1.02);
+        background-color: color-mix(in srgb, var(--theme) 25%, var(--bg));
+    }
+
+    .inputRow > .dragHandles {
+        display: block;
+    }
+
+    .inputRow > .listOrder {
+        display: none;
     }
 }
