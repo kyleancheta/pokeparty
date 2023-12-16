@@ -111,6 +111,55 @@ button:active {
     color: var(--main-white);
     background-color: var(--fire);
 }
+
+/* This is my "primary button"--need to refactor this sol primary is seoncdary and this solid is primary... */
+.solid {
+    --border-color: rgba(78, 29, 223, 0.10);
+    margin-top: 1rem;
+    width: 50%;
+    max-width: 200px;
+    height: 36px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: var(--border-radi-md);
+    border: 1px solid var(--border-color);
+    color: var(--main-white);
+    background: linear-gradient(135deg, var(--dragon), var(--bug));
+    box-shadow: 0 0 2px 1px var(--shadow-05);
+    transition: all 300ms ease-out;
+}
+
+.solid:hover {
+    background: linear-gradient(-135deg, var(--bug), var(--dragon));
+    box-shadow: 0 2px 4px 2px var(--shadow-25);
+}
+
+.solid:focus {
+    outline: 1px solid var(--fire);
+}
+
+.solid:hover {
+    background: linear-gradient(45deg, var(--dragon), var(--bug));
+    box-shadow: 0 0px 1px 0 var(--shadow-05);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+    transition: all 300ms ease-out;
+}
+
+.solid:hover .icon {
+    width: 24px;
+    height: 24px;
+    transform: rotate(360deg);
+}
   
 @keyframes fade-in {
     from {

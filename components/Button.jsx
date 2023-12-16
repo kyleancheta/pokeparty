@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import btnStyles from "./Button.module.css"
 
-export default function Button({primary, danger, disabled, children, className, toolTip, tooltipPosition, ...props}) {
+export default function Button({primary, danger, solid, disabled, children, className, toolTip, tooltipPosition, ...props}) {
     const allClasses = classnames(className, btnStyles)
 
     if (disabled) {
@@ -24,6 +24,14 @@ export default function Button({primary, danger, disabled, children, className, 
         const dangerClasses = classnames(className, btnStyles.danger)
         return (
             <button className={dangerClasses} data-text={toolTip} data-position={tooltipPosition} {...props}>
+                {children}
+            </button> 
+        )
+    }
+    else if (solid) {
+        const classes = classnames(className, btnStyles.solid)
+        return (
+            <button className={classes} {...props}>
                 {children}
             </button> 
         )

@@ -135,7 +135,7 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                 </div>
 
                 <div className={styles.formActions}>
-                    <Button primary onClick={clearForm} style={{fontWeight: "700"}}>Reset</Button>
+                    <Button primary onClick={clearForm} style={{fontWeight: "700", borderRadius: "2px"}}>Reset</Button>
                 </div>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
@@ -176,10 +176,14 @@ function CustomizeModal({toggleCustom, pokemon, customizeParty, ...props}) {
                     <Message info style={{maxWidth: "424"}}>
                         Make sure you spell the names correctly!
                     </Message>
-                    <button className={styles.btn}>
+                    <Button solid>
                         <img src={pokeball} className={styles.icon}/>
                         Submit
-                    </button>        
+                    </Button>
+                    {/* <button className={styles.btn}>
+                        <img src={pokeball} className={styles.icon}/>
+                        Submit
+                    </button>         */}
                 </form>
                                 
             </div>
